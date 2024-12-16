@@ -42,9 +42,10 @@ app.post('/', async (req, res) => {
 //------------- SECCION DE LOGIN -------------
 app.post('/login', async (req, res) => {
   
-  await signIn('encargado@taller.com', '123456');
+console.log("-----DEBUG-----", req.body)
 
-  res.send("Insertados en la tabla Usuarios los siguientes datos");
+  await signIn(req.body.email, req.body.password)
+
 });
 
 app.listen(3001);

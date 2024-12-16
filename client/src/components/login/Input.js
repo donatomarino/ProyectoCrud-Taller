@@ -2,11 +2,11 @@
 
 import React from "react";
 
-const Input = ({ tag, placeholder, type }) => {
+const Input = ({ tag, placeholder, type, name }) => {
     switch (tag) {
         case "input":
             return (
-                <input type={type} placeholder={placeholder} />
+                <input type={type} placeholder={placeholder} name={name}/>
             )
         case "radio":
             return (
