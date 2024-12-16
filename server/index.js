@@ -1,4 +1,4 @@
-//Importación MongoOperations
+//----Importación MongoOperations
 const {
   crearBaseDeDatos,
   crearColeccion,
@@ -11,7 +11,7 @@ const {
   actualizarDocumento
 } = require('./mongoOperations');
 
-//Importación authOperations
+//----Importación authOperations
 const { signIn } = require('./authOperations');
 
 //Inicialización express
