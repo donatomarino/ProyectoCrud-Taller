@@ -1,6 +1,6 @@
 const Encargado = ()=>{
     return(
-        <main>
+        <main >
             SOY LA PAGINA DE ENCARGADO
         </main>
     )
