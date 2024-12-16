@@ -1,8 +1,7 @@
 // Rafa / 16-12-2024 / Inicio AuthOperations / 1.0.0
 
-import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
-import { getFirestore, setDoc, doc, getDoc, deleteDoc  } from 'firebase/firestore';
+const { initializeApp } = require("firebase/app");
+const { getAuth, signInWithEmailAndPassword } = require("firebase/auth");
 
 const firebaseConfig = {
     apiKey: "AIzaSyC6odPRS2NZtX63sJq4nAUFPaBM5Cb2TaQ",
@@ -14,37 +13,33 @@ const firebaseConfig = {
   };
 
 const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
+const auth = getAuth(app);
 
 
-console.log('CONECTADO CORRECTAMENTE');
-
-
-async function signIn (email, password) {
+  async function signIn (email, password) {
     try {
         const credentials = await signInWithEmailAndPassword(auth, email, password);
-        console.log(credentials);
-        await loadData(email)
-        setLoggedIn(true);
-
-        return console.log('CONECTADO CORRECTAMENTE')
+        // console.log('credentials', credentials);
+        // setLoggedIn(true);
+        console.log('CONECTADO CORRECTAMENTE')
         
     } catch (error) {
-      console.log(error.code)
+      console.log(error)
         if (error.code === "auth/invalid-credential"){
             // alert('Contraseña incorrecta');
-            setLoginError([true, 'signIn', 'Email o contraseña incorrectos'])
+            console.log('Email o contraseña incorrectos')
         }else{
-            setLoginError([true, 'signIn', 'Ha habido un problema inesperado'])
+            console.log('Ha habido un problema inesperado')
         }
     }
   }; 
 
- module.exports = {
+  
+
+module.exports = {
     signIn
   }
 
- 
 
 
 

@@ -1,8 +1,10 @@
+import Login from "./pages/Login";
 
 
 function App() {
   return (
     <div class="container">
+      <Login/>
       <h1>Node JS Express Form </h1>
       <form action="http://127.0.0.1:3001/" method="POST">
         <div class="form-group">
