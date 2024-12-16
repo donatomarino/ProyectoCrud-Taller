@@ -1,0 +1,21 @@
+// Jaime / 16-12-2024 / Formulario para el login / 1.0.0
+import Input from "./Input";
+
+export default function Login() {
+    return(
+        <form action="http://127.0.0.1:3001/" method="POST">
+            <div class="form-group">
+                <Input tag="input" placeholder="ADMIN/USER" type="text" />
+            </div>
+
+            <div class="form-group">
+                <Input tag="input" placeholder="Password" type="password" />
+            </div>
+
+            <div class="form-group">
+                <Input tag="radio" type="radio" />
+            </div>
+            <Input tag="button" type="submit" placeholder="Login" />
+        </form>
+    )
+}
