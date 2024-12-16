@@ -9,8 +9,12 @@ const {
   borrarDocumento,
   actualizarDocumento
 } = require('./mongoOperations');
+
+const {signIn} = require('./authOperations')
 const express = require('express');
 const app = express();
+
+// await signIn('encargado@taller.com', '123456');
 
 // Agregar middleware para analizar el cuerpo de la solicitud
 app.use(express.urlencoded({ extended: true }));
@@ -21,6 +25,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', async (req, res) => {
+  
   await crearBaseDeDatos();
   await crearColeccion("Usuarios");
   await insertarDocumento('Usuarios', { nombre: req.body.first_name, apellido: req.body.last_name, email:req.body.email});
