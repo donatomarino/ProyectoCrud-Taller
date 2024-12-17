@@ -6,7 +6,7 @@ const Input = ({ tag, placeholder, type, name }) => {
     switch (tag) {
         case "input":
             return (
-                <input type={type} placeholder={placeholder} name={name}/>
+                <input type={type} placeholder={placeholder} name={name} />
             )
         case "radio":
             return (
@@ -15,6 +15,15 @@ const Input = ({ tag, placeholder, type, name }) => {
                     <label for="admin">Encargado</label>
                     <input type={type} id='employed' name='rol' value="Mecanico" />
                     <label for="employed">Mecánico</label>
+                </div>
+            )
+        case "radio2":
+            return (
+                <div>
+                    <input type={type} id='show' name='visible' value="true" />
+                    <label for="show">Visible</label>
+                    <input type={type} id='hidden' name='visible' value="false" />
+                    <label for="hidden">Oculto</label>
                 </div>
             )
         case "button":
