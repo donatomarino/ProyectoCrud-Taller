@@ -23,29 +23,28 @@ const Encargado = ()=>{
   );
     return (
         <div className="parent">
-          <div className="div1">
             <Header />
-          </div>
-          <div className="div2">
-            <BuscarPiezas onBuscar={setBusqueda} />
-            {piezasFiltradas.map((pieza) => (
-              <PiezaItem
-                key={pieza.id}
-                pieza={pieza}
-                onActualizar={actualizarPieza}
-                onBorrar={borrarPieza}
-              />
-            ))}
-          </div>
-          <div className="div3">
-            <ListaSolicitudes solicitudes={solicitudes} />
-          </div>
-          <div className="div4">
-            <FormularioAgregarPieza onAgregar={agregarPieza} />
-          </div>
-          <div className="div5">
+            <main className="main-content">
+                <div className="div2">
+                    <BuscarPiezas onBuscar={setBusqueda} />
+                    {piezasFiltradas.map((pieza) => (
+                      <PiezaItem
+                        key={pieza.id}
+                        pieza={pieza}
+                        onActualizar={actualizarPieza}
+                        onBorrar={borrarPieza}
+                      />
+                    ))}
+                  </div>
+                  <div className="div3">
+                    <ListaSolicitudes solicitudes={solicitudes} />
+                  </div>
+                  <div className="div4">
+                    <FormularioAgregarPieza onAgregar={agregarPieza} />
+                  </div>
+            </main>
             <Footer />
-          </div>
+          
         </div>
       );
     };

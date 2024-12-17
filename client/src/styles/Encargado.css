@@ -1,12 +1,12 @@
 /* Estilo base para el contenedor principal */
 .parent {
-  display: grid;
+  /* display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(5, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   min-height: 100vh; 
-  box-sizing: border-box;
+  box-sizing: border-box; */
 }
 
 /*Centrar los div*/
@@ -52,11 +52,11 @@
 
 /* Footer siempre al final */
 .div5 {
-  grid-area: 5 / 1 / 6 / 6;
+  /* grid-area: 5 / 1 / 6 / 6;
   background-color: #333;
   color: #fff;
   padding: 10px;
   position: sticky; 
   bottom: 0;
-  width: 100%;
+  width: 100%; */
 }
