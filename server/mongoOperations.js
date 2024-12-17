@@ -1,4 +1,4 @@
-const { MongoClient } = require('mongodb');
+import { MongoClient } from 'mongodb';
 
 const mydb = "EjercicioAPI";
 
@@ -118,8 +118,7 @@ async function actualizarDocumento(coleccion, filtro, actualizacion) {
     await client.close();
 }
 
-
-module.exports = {
+export {
     crearBaseDeDatos,
     crearColeccion,
     insertarDocumento,
@@ -130,4 +129,17 @@ module.exports = {
     borrarDocumento,
     actualizarDocumento
 };
+
+
+/* module.exports = {
+    crearBaseDeDatos,
+    crearColeccion,
+    insertarDocumento,
+    obtenerPrimerElemento,
+    verTodos,
+    querySimple,
+    sortPorCampo,
+    borrarDocumento,
+    actualizarDocumento
+}; */
 
