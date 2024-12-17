@@ -4,9 +4,10 @@ export default function BuscarPiezas(){
     return(
 
         
-        <div>
+        <form action="http://127.0.0.1:3001/create-tool" method="POST">
             <h3>Buscar Pieza</h3>
-            <input type="text" placeholder="buscar por"/>
-        </div>
+            <input type="text" placeholder="Buscar por nombre"/>
+            <input type = "submit" placeholder = "Buscar"></input>
+        </form>
     )
 }

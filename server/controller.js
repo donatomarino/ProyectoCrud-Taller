@@ -40,3 +40,6 @@ export const search = async (req, res) => {
 }
 
 // Insertamos elementos
+export const insert = async(req, res) => {
+    
+}
