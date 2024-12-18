@@ -15,4 +15,22 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-export { auth }
+/**
+ * Función para iniciar sesión usando FireAuth
+ * @param {text} email 
+ * @param {text} password 
+ * @returns credentials -> las credenciales del usuario que inicia sesión
+ */ 
+async function signIn(email, password) {
+  try {
+    const credentials = await signInWithEmailAndPassword(auth, email, password);
+    // setLoggedIn(true);
+    console.log('CONECTADO CORRECTAMENTE');
+    return credentials;
+  } catch (error) {
+    console.error("Error en la autenticación:", error);
+    throw error; //erro se maneja en controller
+  }
+};
+
+export { signIn } 
