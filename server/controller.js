@@ -199,17 +199,25 @@ export const update = async(req, res) => {
     console.log("--------------")
     console.log("--------------")
 
-    const {id , marca, tipo, precio_compra, precio_venta} = req.body;
+    const itemToUpdate = {
+        tipo: req.body.tipo,
+        marca: req.body.marca,
+        precio: {
+            precio_compra: req.body.precio.precio_compra,
+            precio_venta: req.body.precio.precio_venta,
+        }
+    };
     
     try {
-        await actualizarDocumento("components", {id: req.body.id}, {id: req.body.id, marca: req.body.marca, tipo: req.body.tipo, precio_venta: req.body.precio_venta, precio_compra: req.body.precio_compra, visible: true});
+        await actualizarDocumento("components", {tipo: req.body.tipo}, itemToUpdate);
 
         console.log('-----Herramienta actualizada----')
         // res.json(upd)
         // Devolvemos los resultados obtenidos
-        // res.status(200).json(resultados);
-        res
-
+        return res.status(200).json({
+            message: "Herramientas modificadas exitosamente",
+            data: JSON.stringify(itemToUpdate)
+        });
         // res.redirect("http://localhost:3000/")
     } catch(e) {
         console.log("Error: " + e)
@@ -221,7 +229,7 @@ export const createIncidence = async (req, res) => {
     try {
         // los datos de la incidencia se almacenan en esta constante
         const newIncidence = {
-            tipo: req.body.tipo,
+            //tipo: req.body.tipo,
             title: req.body.title,
             descripcion: req.body.descripcion,
             resuelta: "false",

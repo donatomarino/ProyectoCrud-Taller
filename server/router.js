@@ -2,7 +2,7 @@
 // Jaime / 18-12-2024 / Rutas del EndPoint del servidor / 1.0.1
 
 import { Router } from "express";
-import { index, login, allItems, createTool, createRequest, allRequests, update, search, update, createIncidence } from "./controller.js";
+import { index, login, allItems, createTool, createRequest, allRequests, update, search, createIncidence } from "./controller.js";
 
 const router = Router();
 
@@ -14,7 +14,7 @@ router.post("/create-query", createRequest);
 router.get("/list-queries", allRequests);
 router.patch("/update", update);
 router.post("/search", search)
-router.post("/update", update)
+//router.post("/update", update)
 router.post("/incidencias", createIncidence)
 
 export default router;

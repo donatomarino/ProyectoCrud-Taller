@@ -18,14 +18,15 @@ async function connectToMongo() {
 async function crearColeccion(coleccion, documento) {
     const client = await connectToMongo();
     const db = client.db(mydb);
-    const currentCollections = db.getCollectionInfos().map(collection => collection.name);
+    const collections = await db.listCollections().toArray();
+    const currentCollections = collections.map(collection => collection.name);
     console.log(currentCollections)
-    if(!currentCollections.includes(colleccion)){
+    if(!currentCollections.includes(coleccion)){
         await db.createCollection(coleccion);
         console.log(`Colección '${coleccion}' creada.`);
         await client.close();
     } else{
-        insertarDocumento(collecion, documento)
+        insertarDocumento(coleccion, documento)
     }
 }
 
