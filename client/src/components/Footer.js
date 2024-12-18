@@ -1,8 +1,10 @@
+// Carlos / 17-12-2024 / Footer para la página Encargado / 1.0.0
+/* Rafa / 18-12-2024 / Clases para dar stilos / 1.0.0 */
 import React from "react"
 
 export default function Footer(){
     return(
-        <footer>
+        <footer className="main-footer">
             <p>© 2024 Taller Online. Todos los derechos reservados</p>
         </footer>
     )

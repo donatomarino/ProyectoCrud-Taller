@@ -1,0 +1,47 @@
+/* Rafa / 18-12-2024 / Estilos / 1.0.0 */
+
+.addPieza-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+}
+
+.addPieza-title{
+    margin-bottom: 20px;
+}
+
+.addPieza-textInput{
+    font-size: 14px;
+    padding: 3px 15px;
+    margin-bottom: 7px;
+    border: 1px solid #29324e;
+    border-radius: 5px;
+    color: #29324e;
+}
+
+.addPieza-submitBtn{
+    border-radius: 5px;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 3px 20px;
+    width: 100%;
+    border: 1px solid black;
+    background-color: #29324ec8;
+    color: white;
+    transition: background .2s ease-in-out;
+}
+
+.addPieza-submitBtn:hover{
+    background-color: #29324e;
+}
+
+.addPieza-textInput:placeholder{
+    color: #29324e;
+}
+
+
+
+

@@ -1,51 +1,109 @@
-import path from 'path';
-import { fileURLToPath } from 'url';
 //----Importación authOperations
-import { signIn } from './authOperations.js';
+import { auth } from './authOperations.js';
+
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 //----Importación MongoOperations
 import {
-    crearBaseDeDatos,
-    crearColeccion,
     insertarDocumento,
-    obtenerPrimerElemento,
     verTodos,
-    querySimple,
-    sortPorCampo,
-    borrarDocumento,
+    searchForName,
     actualizarDocumento
 } from './mongoOperations.js';
-
-// Obtén __dirname en ESM
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 export const index = (req, res) => {
     res.redirect("http://localhost:3000/")
 }
 
-export const register = async (req, res) => {
-    try {
-        await crearBaseDeDatos();
-        await crearColeccion("Usuarios");
-        await insertarDocumento('Usuarios', { nombre: req.body.first_name, apellido: req.body.last_name, email: req.body.email });
-        //console.log('First Name:', req.body.first_name, '\nLast Name: ', req.body.last_name, '\nEmail: ', req.body.email);
-        res.send("Insertados en la tabla Usuarios los siguientes datos: " + JSON.stringify(req.body));
-
-    }catch(error){
-        console.log(error);
-    }
-    
-}
-
 export const login = async (req, res) => {
-    console.log("-----DEBUG-----", req.body)
-    await signIn(req.body.email, req.body.password)
-    res.redirect("/")
+    // Almacena email y password desde la req.body
+    const { email, password } = req.body;
+
+    try {
+        // en credentials guarda el resultado de la función signInWithEmailAndPassword
+        const credentials = await signInWithEmailAndPassword(auth, email, password);
+
+        console.log('CONECTADO CORRECTAMENTE');
+
+        // Responder con un status 200 y un mensaje de éxito
+        return res.status(200).json({
+            message: 'Inicio de sesión exitoso',
+            user: credentials.user.email
+        });
+    } catch (error) {
+        console.error('Error durante el inicio de sesión:', error);
+
+        // Manejar errores específicos de password o email
+        if (error.code === "auth/invalid-credential" || error.code === "auth/wrong-password" || error.code === "auth/user-not-found") {
+            return res.status(401).json({
+                message: 'Email o contraseña incorrectos'
+            });
+        }
+
+        // Manejar otros errores de forma genérica
+        return res.status(500).json({
+            message: 'Ha habido un problema inesperado',
+            error: error.message
+        });
+    }
+
 }
 
+// Mostrar todo el inventario
 export const allItems = async (req, res) => {
-    await verTodos("components");
-    console.log("---Todos los datos ----")
-    res.send(req.body);
-}
+    try {
+        // Obtener todos los elementos desde la base de datos
+        const items = await verTodos("components");
+
+        console.log("--- Todos los datos obtenidos correctamente ---");
+
+        // Verificar si el inventario está vacío
+        if (!items || items.length === 0) {
+            console.warn("No hay datos que recuperar de la base de datos.");
+            return res.status(401).json({
+                message: "No hay datos que recuperar de la base de datos",
+            });
+        }
+
+        // Responder con estado 200 y los datos obtenidos
+        return res.status(200).json({
+            message: "Inventario obtenido exitosamente",
+            data: items
+        });
+    } catch (error) {
+        console.error("Error al obtener el inventario:", error);
+
+        // Manejo de errores generales
+        return res.status(500).json({
+            message: "Error al obtener el inventario",
+            error: error.message
+        });
+    }
+};
+
+// Crear una nueva herramienta
+export const createTool = async (req, res) => {
+    try {
+        const newTool = {
+            id: req.body.id,
+            tipo: req.body.tipo,
+            marca: req.body.marca,
+            precio: {
+                precio_compra: req.body.precio_compra,
+                precio_venta: req.body.precio_venta,
+            },
+            visible: "true",
+        };
+
+        // Insertar el documento en la base de datos
+        await insertarDocumento("components", newTool);
+
+        console.log("--- Nueva herramienta creada ----");
+
+        // Responder con status 200 y un mensaje
+        res.status(200).json({ message: "Herramienta creada exitosamente" });
+    } catch (error) {
+        console.error("Error al crear herramienta:", error);
+        res.status(500).json({ message: "Error al crear herramienta", error });
+    }
+};

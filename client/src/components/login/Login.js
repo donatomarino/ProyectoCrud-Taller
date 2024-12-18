@@ -1,5 +1,6 @@
 // Jaime / 16-12-2024 / Formulario para el login / 1.0.0
 import Input from "../Input";
+import '../../styles/Login.css';
 
 export default function Login() {
     return(
