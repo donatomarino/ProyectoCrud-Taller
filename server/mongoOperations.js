@@ -1,5 +1,6 @@
 // Donato / 17-12-2024 / Creación de listado herramienta JSON desde el MongoDB
 // Donato / 18-12-2024 / Implementación functión 'verTodos' - 'searchForName' - 'creacionIncidencia'
+// Donato / 19-12-2024 / Complemento función 'crearCollecion'
 
 import { MongoClient } from 'mongodb';
 
@@ -18,9 +19,13 @@ async function connectToMongo() {
 async function crearColeccion(coleccion, documento) {
     const client = await connectToMongo();
     const db = client.db(mydb);
+
+    // Sacamos todas las colecciones 
     const collections = await db.listCollections().toArray();
     const currentCollections = collections.map(collection => collection.name);
     console.log(currentCollections)
+
+    // Si la coleccion no existe la crea, si no añade el documento
     if(!currentCollections.includes(coleccion)){
         await db.createCollection(coleccion);
         console.log(`Colección '${coleccion}' creada.`);

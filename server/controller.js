@@ -1,4 +1,7 @@
 // Jaime / 18-12-2024 / Funciones del controller con respuesta del servidor / 1.0.1
+// Donato - Jaime / 18-12-2024 / Revision y implementación funcion update
+// Donato / 19-12-2024 / Implementación funcion crearIncidencia y deleteItem
+
 //----Importación authOperations
 import { signIn } from './authOperations.js';
 
@@ -121,16 +124,14 @@ export const createRequest = async (req, res) => {
     try {
         // los datos de la solicitud se almacenan en esta constante
         const newRequest = {
-            tipo: req.body.tipo,
-            titulo: req.body.titulo,
+            // tipo: req.body.tipo,
+            title: req.body.title,
             descripcion: req.body.descripcion,
             resuelta: "false",
         };
 
         // Insertar el documento en la base de datos
-        await insertarDocumento("solicitudes", newRequest);
-
-        console.log("--- Nueva solicitud creada ----");
+        await crearColeccion("solicitudes", newRequest);
 
         // Responder con status 200 y un mensaje
         res.status(200).json({ message: "Solicitud creada exitosamente" });
@@ -172,11 +173,27 @@ export const allRequests = async (req, res) => {
     }
 };
 
-// export const update = async(req, res) => {
-//     const upd = await actualizarDocumento("components", {tipo: 'Llaves de impacto'}, {marca: 'Prueba'});
-//     console.log("Hola" + upd)
-//     res.send(upd)
-// }
+// Incidencias
+export const createIncidence = async (req, res) => {
+    try {
+        // los datos de la incidencia se almacenan en esta constante
+        const newIncidence = {
+            title: req.body.title,
+            descripcion: req.body.descripcion,
+            resuelta: "false",
+        };
+
+        // Insertar el documento en la base de datos
+        await crearColeccion("incidencias", newIncidence);
+
+        // Responder con status 200 y un mensaje
+        res.status(200).json({ message: "Incidencia insertada exitosamente"});
+    } catch (error) {
+        console.error("Error al crear la incidencia:", error);
+        res.status(500).json({ message: "Error al crear la incidencia", error });
+    }
+};
+
 // Carlos / 18-12-2024 / search para la búsqueda por nombre / 1.0.0
 // Donato / 18-12-2024 / search para la búsqueda por nombre / 1.0.0
 export const search = async (req, res) => {
@@ -192,13 +209,6 @@ export const search = async (req, res) => {
 
 // Update
 export const update = async(req, res) => {
-    console.log(req.body.tipo);
-    console.log("--------------")
-    console.log("--------------")
-    console.log("--------------")
-    console.log("--------------")
-    console.log("--------------")
-
     const itemToUpdate = {
         tipo: req.body.tipo,
         marca: req.body.marca,
@@ -211,11 +221,8 @@ export const update = async(req, res) => {
     try {
         await actualizarDocumento("components", {tipo: req.body.tipo}, itemToUpdate);
 
-        console.log('-----Herramienta actualizada----')
-        // res.json(upd)
-        // Devolvemos los resultados obtenidos
         return res.status(200).json({
-            message: "Herramientas modificadas exitosamente",
+            message: "Herramienta modificada exitosamente",
             data: JSON.stringify(itemToUpdate)
         });
         // res.redirect("http://localhost:3000/")
@@ -224,27 +231,16 @@ export const update = async(req, res) => {
     }
 }
 
-// Incidencias
-export const createIncidence = async (req, res) => {
+// Borrar elemento de la lista
+export const deleteItem = async(req, res) => {    
     try {
-        // los datos de la incidencia se almacenan en esta constante
-        const newIncidence = {
-            //tipo: req.body.tipo,
-            title: req.body.title,
-            descripcion: req.body.descripcion,
-            resuelta: "false",
-        };
+        await actualizarDocumento("components", {tipo: req.body.tipo}, {visible: "false"});
 
-        // Insertar el documento en la base de datos
-        await crearColeccion("incidencias", newIncidence);
-
-        console.log("--- Nueva incidencia creada ----");
-        res.send(newIncidence)
-
-        // Responder con status 200 y un mensaje
-        res.status(200).json({ message: "Incidencia insertada exitosamente" });
-    } catch (error) {
-        console.error("Error al crear la incidencia:", error);
-        res.status(500).json({ message: "Error al crear la incidencia", error });
+        return res.status(200).json({
+            message: "Herramienta borrada exitosamente"
+        });
+        // res.redirect("http://localhost:3000/")
+    } catch(e) {
+        console.log("Error: " + e)
     }
-};
+}

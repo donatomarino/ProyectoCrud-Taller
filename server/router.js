@@ -1,20 +1,19 @@
 // Donato - 18/12/2024 - Implementación ruta 'all-items' - 'search' - 'incidencias'
-// Jaime / 18-12-2024 / Rutas del EndPoint del servidor / 1.0.1
+// Donato - 19/12/2024 - Implementación ruta 'delete-item'
 
 import { Router } from "express";
-import { index, login, allItems, createTool, createRequest, allRequests, update, search, createIncidence } from "./controller.js";
+import { index, login, allItems, createTool, search, update, createIncidence, createRequest, deleteItem } from "./controller.js";
 
 const router = Router();
 
 router.get("/", index);
-router.post("/login", login);
-router.get("/all-items", allItems);
-router.post("/create-tool", createTool);
-router.post("/create-query", createRequest);
-router.get("/list-queries", allRequests);
-router.patch("/update", update);
+router.post("/login", login)
+router.get("/all-items", allItems)
+router.post("/create-tool", createTool)
 router.post("/search", search)
-//router.post("/update", update)
+router.patch("/update", update)
 router.post("/incidencias", createIncidence)
+router.post("/solicitudes", createRequest)
+router.patch("/delete-item", deleteItem)
 
 export default router;
