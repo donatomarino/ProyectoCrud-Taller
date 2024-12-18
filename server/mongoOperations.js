@@ -1,3 +1,7 @@
+// Donato / 17-12-2024 / Creación de listado herramienta JSON desde el MongoDB
+// Donato / 17-12-2024 / Implementación functión 'verTodos' - 'searchForName'
+
+
 import { MongoClient } from 'mongodb';
 
 const mydb = "TallerMecanico"; // Nombre datebase
@@ -58,6 +62,7 @@ async function actualizarDocumento(coleccion, filtro, actualizacion) {
     const resultado = await collection.updateOne(filtro, { $set: actualizacion });
     console.log(`${resultado.modifiedCount} documento(s) actualizado(s).`);
     await client.close();
+    return resultado;
 }
 
 export {
