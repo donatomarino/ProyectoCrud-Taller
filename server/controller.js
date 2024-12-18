@@ -1,5 +1,3 @@
-import path from 'path';
-import { fileURLToPath } from 'url';
 //----Importación authOperations
 import { signIn } from './authOperations.js';
 
@@ -11,10 +9,6 @@ import {
     actualizarDocumento
 } from './mongoOperations.js';
 
-// Obtén __dirname en ESM
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
 export const index = (req, res) => {
     res.redirect("http://localhost:3000/")
 }
@@ -22,7 +16,7 @@ export const index = (req, res) => {
 export const login = async (req, res) => {
     console.log("-----DEBUG-----", req.body)
     await signIn(req.body.email, req.body.password)
-    res.redirect("/")
+    res.redirect("http://localhost:3000/")
 }
 
 // Mostrar todo el inventario
@@ -34,19 +28,27 @@ export const allItems = async (req, res) => {
 
 // Crear una nueva herramienta
 export const createTool = async (req, res) => {
-    const precioCompra = parseFloat(req.body.precio_compra);
-    const precioVenta = parseFloat(req.body.precio_venta);
-    const newTool = { 
-        id: req.body.id,
-        tipo: req.body.tipo, 
-        marca: req.body.marca, 
-        precio: {
-            precio_compra: precioCompra,
-            precio_venta: precioVenta
-        },
-        visible: true
-    };
-    const items = await insertarDocumento("components", newTool);
-    console.log("--- Nueva herramienta creada ----")
-    res.redirect("http://localhost:3000/create-tool")
-}
+    try {
+        const newTool = {
+            id: req.body.id,
+            tipo: req.body.tipo,
+            marca: req.body.marca,
+            precio: {
+                precio_compra: req.body.precio_compra,
+                precio_venta: req.body.precio_venta,
+            },
+            visible: "true",
+        };
+
+        // Insertar el documento en la base de datos
+        await insertarDocumento("components", newTool);
+
+        console.log("--- Nueva herramienta creada ----");
+
+        // Responder con status 200 y un mensaje
+        res.status(200).json({ message: "Herramienta creada exitosamente" });
+    } catch (error) {
+        console.error("Error al crear herramienta:", error);
+        res.status(500).json({ message: "Error al crear herramienta", error });
+    }
+};
