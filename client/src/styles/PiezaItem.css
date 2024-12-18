@@ -37,7 +37,7 @@
 }
 
 .pieza-deleteBtn,
-.pieza-getMoreBtn{
+.pieza-editItemBtn{
     border-radius: 5px;
     margin-top: 10px;
     font-size: 14px;
@@ -50,7 +50,7 @@
     transition: background .2s ease-in-out;
 }
 
-.pieza-getMoreBtn:hover{
+.pieza-editItemBtn:hover{
     background-color: #29324e;
 }
 
@@ -62,4 +62,66 @@
     background-color: #ff651e9d;
 }
 
+.editItem-form{
+    
+}
+
+.editItem-formContainer{
+    display: flex;
+    justify-content: start;
+    align-items: top;
+    margin-top: 10px;
+}
+
+.editItem-dataContent{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.editItem-label{
+    margin: 0;
+    margin: 5px;
+}
+
+.editItem-name{
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+.editItem-textInput{
+    font-size: 14px;
+    padding: 3px 15px;
+    margin-bottom: 7px;
+    border: 1px solid #29324e;
+    border-radius: 5px;
+    color: #29324e;
+    margin-right: 15px;
+}
+
+.editItem-textArea{
+    width: 500px;
+    font-size: 14px;
+    padding: 5px;
+    border: 1px solid #29324e;
+    border-radius: 5px;
+    color: #29324e;
+}
+
+.editItem-sendChangesBtn{
+    border-radius: 5px;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 3px 20px;
+    width: 100%;
+    border: 1px solid black;
+    background-color: #29324ec8;
+    color: white;
+    transition: background .2s ease-in-out;
+}
+
+.editItem-sendChangesBtn:hover{
+    background-color: #29324e;
+}
 

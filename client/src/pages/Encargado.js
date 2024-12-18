@@ -7,12 +7,11 @@ import BuscarPiezas from "../components/BuscarPiezas"
 import PiezaItem from "../components/PiezaItem"
 import ListaSolicitudes from "../components/ListaSolicitudes"
 import FormularioAgregarPieza from "../components/FormularioAgregarPieza"
-import "../styles/Encargado.css"
 
 const Encargado = ()=>{
     const [piezas, setPiezas] = useState([]);
-  const [solicitudes] = useState(["Incidencia de prueba"]);
-  const [busqueda, setBusqueda] = useState("");
+    const [solicitudes] = useState(["Incidencia de prueba"]);
+    const [busqueda, setBusqueda] = useState("");
 
 
   /*Aquí tendría que solicitar las piezas de la base de datos*/
