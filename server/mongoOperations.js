@@ -1,5 +1,5 @@
 // Donato / 17-12-2024 / Creación de listado herramienta JSON desde el MongoDB
-// Donato / 17-12-2024 / Implementación functión 'verTodos' - 'searchForName'
+// Donato / 18-12-2024 / Implementación functión 'verTodos' - 'searchForName' - 'creacionIncidencia'
 
 import { MongoClient } from 'mongodb';
 

@@ -160,16 +160,16 @@ export const createIncidence = async (req, res) => {
     try {
         // los datos de la incidencia se almacenan en esta constante
         const newIncidence = {
-            tipo: 'incidencias',
-            titulo: 'Hola',
-            descripcion: 'Hola',
+            tipo: req.body.tipo,
+            title: req.body.title,
+            descripcion: req.body.descripcion,
             resuelta: "false",
         };
 
         // Insertar el documento en la base de datos
         await crearColeccion("incidencias", newIncidence);
 
-        console.log("--- Nueva incidencia insertada ----");
+        console.log("--- Nueva incidencia creada ----");
         res.send(newIncidence)
 
         // Responder con status 200 y un mensaje
