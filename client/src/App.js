@@ -11,8 +11,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Encargado type='encargado'/>} />
-        <Route path="/login" element={
+        <Route path="/encargado" element={<Encargado type='encargado'/>} />
+        <Route path="/" element={
           <div class="container">
             <h2>LOGIN</h2>
             <Login />

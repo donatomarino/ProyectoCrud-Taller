@@ -17,19 +17,27 @@ export const index = (req, res) => {
 
 export const login = async (req, res) => {
     // Almacena email y password desde la req.body
-    const { email, password } = req.body;
+    console.log(req.body);
+    const { email, password, rol } = req.body;
 
     try {
         // en credentials guarda el resultado de la función signInWithEmailAndPassword
         const credentials = await signInWithEmailAndPassword(auth, email, password);
 
         console.log('CONECTADO CORRECTAMENTE');
-
+        
         // Responder con un status 200 y un mensaje de éxito
-        return res.status(200).json({
-            message: 'Inicio de sesión exitoso',
-            user: credentials.user.email
-        });
+        if(rol === 'Encargado'){
+            res.redirect("http://localhost:3000/encargado")
+        }else if(rol === 'Mecanico'){
+            res.redirect("http://localhost:3000/mecanico")
+        }
+        
+        // return res.status(200).json({
+        //     message: 'Inicio de sesión exitoso',
+        //     user: credentials.user.email
+        // });
+        
     } catch (error) {
         console.error('Error durante el inicio de sesión:', error);
 
