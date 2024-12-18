@@ -7,6 +7,7 @@ import BuscarPiezas from "../components/BuscarPiezas"
 import PiezaItem from "../components/PiezaItem"
 import ListaSolicitudes from "../components/ListaSolicitudes"
 import FormularioAgregarPieza from "../components/FormularioAgregarPieza"
+import FormAddSolicitud from '../components/FormAddSolicitud';
 
 const Mecanico = ()=>{
     const [piezas, setPiezas] = useState([]);
@@ -43,7 +44,7 @@ const Mecanico = ()=>{
 
     useState(()=>{
     /* Manejar el envío del formulario */
-    const handleSubmit = async (e) => {
+    const getItems = async (e) => {
       try {
         // Enviar los datos al servidor
         const response = await fetch("http://127.0.0.1:3001/all-items");
@@ -64,7 +65,7 @@ const Mecanico = ()=>{
       }
     };
 
-    handleSubmit();
+    getItems();
 
     },[])
 
@@ -87,11 +88,51 @@ const Mecanico = ()=>{
                     </ul>
                     
                 </div>
+                
                 <div className="main-rightContainer-up">
-                    <ListaSolicitudes solicitudes={solicitudes} />
-                </div>
-                <div className="main-rightContainer-down">
-                    <FormularioAgregarPieza />
+                    {/* <FormAddSolicitud/> */}
+                    {/* <ListaSolicitudes solicitudes={solicitudes} /> */}
+
+                    <form  className="addPieza-form">
+                        {/* const newIncidence = {
+                            tipo: req.body.tipo,
+                            titulo: req.body.titulo,
+                            descripcion: req.body.descripcion,
+                            resuelta: "false",
+                        }; */}
+                        <h3 className="addPieza-title">Añadir Nueva Pieza</h3>
+
+                        <input
+                        name="tipo"
+                        placeholder="Tipo"
+                        className="addPieza-textInput"
+                        />
+
+                        <input
+                        name="titulo"
+                        placeholder="Título"
+                        className="addPieza-textInput"
+                        />
+
+                        <textarea
+                        name="descripcion"
+                        placeholder="Descripción"
+                        className="addPieza-textInput"
+                        />
+                        
+                        <select name="solicitudOIncidencia">
+                            <option>
+                                Solicitud
+                            </option>
+                            <option>
+                                Incidencia
+                            </option>
+                        </select>
+                        
+
+                        <button type="submit" className="addPieza-submitBtn">AÑADIR</button>
+                    </form>
+
                 </div>
             </main>
             <Footer />

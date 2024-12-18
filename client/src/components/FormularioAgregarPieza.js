@@ -26,6 +26,7 @@ export default function FormularioAgregarPieza({onAgregar}){
 
   /* Manejar el envío del formulario */
   const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
       // Enviar los datos al servidor
       const response = await fetch("http://127.0.0.1:3001/create-tool", {
@@ -80,7 +81,7 @@ export default function FormularioAgregarPieza({onAgregar}){
     //     setNuevaPieza({ id: "", nombre: "", precioCompra: "", precioVenta: "" });
     //   };
     return(
-        <form onSubmit={handleSubmit} className="addPieza-form">
+        <form onSubmit={(e)=>handleSubmit} className="addPieza-form">
             <h3 className="addPieza-title">Añadir Nueva Pieza</h3>
             <input
               name="id"
