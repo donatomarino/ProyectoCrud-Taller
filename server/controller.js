@@ -8,7 +8,8 @@ import {
     insertarDocumento,
     verTodos,
     searchForName,
-    actualizarDocumento
+    actualizarDocumento,
+    crearColeccion
 } from './mongoOperations.js';
 
 export const index = (req, res) => {
@@ -115,7 +116,7 @@ export const search = async (req, res) => {
     // res.redirect("http://localhost:3000/")
 }
 
-// 
+// Update
 export const update = async(req, res) => {
     console.log(req);
     try {
@@ -125,3 +126,28 @@ export const update = async(req, res) => {
         console.log("Error: " + e)
     }
 }
+
+// Incidencias
+export const createIncidence = async (req, res) => {
+    try {
+        // los datos de la incidencia se almacenan en esta constante
+        const newIncidence = {
+            tipo: 'incidencias',
+            titulo: 'Hola',
+            descripcion: 'Hola',
+            resuelta: "false",
+        };
+
+        // Insertar el documento en la base de datos
+        await crearColeccion("incidencias", newIncidence);
+
+        console.log("--- Nueva incidencia insertada ----");
+        res.send(newIncidence)
+
+        // Responder con status 200 y un mensaje
+        res.status(200).json({ message: "Incidencia insertada exitosamente" });
+    } catch (error) {
+        console.error("Error al crear la incidencia:", error);
+        res.status(500).json({ message: "Error al crear la incidencia", error });
+    }
+};
