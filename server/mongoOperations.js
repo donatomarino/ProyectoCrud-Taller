@@ -1,7 +1,6 @@
 // Donato / 17-12-2024 / Creación de listado herramienta JSON desde el MongoDB
 // Donato / 17-12-2024 / Implementación functión 'verTodos' - 'searchForName'
 
-
 import { MongoClient } from 'mongodb';
 
 const mydb = "TallerMecanico"; // Nombre datebase
@@ -13,6 +12,21 @@ async function connectToMongo() {
     const client = new MongoClient(url);
     await client.connect();
     return client;
+}
+
+//Creacion de una coleccion dentro de una BD
+async function crearColeccion(coleccion, documento) {
+    const client = await connectToMongo();
+    const db = client.db(mydb);
+    const currentCollections = db.getCollectionInfos().map(collection => collection.name);
+    console.log(currentCollections)
+    if(!currentCollections.includes(colleccion)){
+        await db.createCollection(coleccion);
+        console.log(`Colección '${coleccion}' creada.`);
+        await client.close();
+    } else{
+        insertarDocumento(collecion, documento)
+    }
 }
 
 //Insertar dentro de una coleccion de una BD
@@ -66,6 +80,7 @@ async function actualizarDocumento(coleccion, filtro, actualizacion) {
 }
 
 export {
+    crearColeccion,
     insertarDocumento,
     verTodos,
     actualizarDocumento,
