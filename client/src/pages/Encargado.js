@@ -8,7 +8,7 @@ import PiezaItem from "../components/PiezaItem"
 import ListaSolicitudes from "../components/ListaSolicitudes"
 import FormularioAgregarPieza from "../components/FormularioAgregarPieza"
 
-const Encargado = ()=>{
+const Encargado = ( { type })=>{
     const [piezas, setPiezas] = useState([]);
     const [solicitudes] = useState(["Incidencia de prueba"]);
     const [busqueda, setBusqueda] = useState("");
@@ -74,12 +74,13 @@ const Encargado = ()=>{
             <main className="App-main">
                 <div className="main-leftContainer">
                     <BuscarPiezas onBuscar={setBusqueda} />
-                    <h3 className="listaPiezas-title">Listado de piezas</h3>
+                    <h3 className="listaPiezas-title">Listado de herramientas</h3>
                     <ul className="listaPiezas-container">
                       {piezas.map((pieza, i) => (
                         <PiezaItem
                           key={i}
                           pieza={pieza}
+                          type= 'encargado'
                           // onActualizar={actualizarPieza}
                           // onBorrar={borrarPieza}
                         />
