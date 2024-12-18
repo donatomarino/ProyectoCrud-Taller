@@ -172,11 +172,11 @@ export const allRequests = async (req, res) => {
     }
 };
 
-export const update = async(req, res) => {
-    const upd = await actualizarDocumento("components", {tipo: 'Llaves de impacto'}, {marca: 'Prueba'});
-    console.log("Hola" + upd)
-    res.send(upd)
-}
+// export const update = async(req, res) => {
+//     const upd = await actualizarDocumento("components", {tipo: 'Llaves de impacto'}, {marca: 'Prueba'});
+//     console.log("Hola" + upd)
+//     res.send(upd)
+// }
 // Carlos / 18-12-2024 / search para la búsqueda por nombre / 1.0.0
 // Donato / 18-12-2024 / search para la búsqueda por nombre / 1.0.0
 export const search = async (req, res) => {
