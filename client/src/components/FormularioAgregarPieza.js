@@ -96,6 +96,15 @@ export default function FormularioAgregarPieza({onAgregar}){
               onChange={handleChange}
               className="addPieza-textInput"
             />
+
+            <input
+              name="tipo"
+              placeholder="Tipo"
+              // value={nuevaPieza.tipo}
+              onChange={handleChange}
+              className="addPieza-textInput"
+            />
+            
             <input
               name="precio_compra"
               placeholder="Precio Compra"
@@ -107,13 +116,6 @@ export default function FormularioAgregarPieza({onAgregar}){
               name="precio_venta"
               placeholder="Precio Venta"
               // value={nuevaPieza.precio_venta}
-              onChange={handleChange}
-              className="addPieza-textInput"
-            />
-            <input
-              name="tipo"
-              placeholder="Tipo"
-              // value={nuevaPieza.tipo}
               onChange={handleChange}
               className="addPieza-textInput"
             />

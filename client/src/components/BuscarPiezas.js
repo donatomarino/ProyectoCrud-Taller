@@ -40,7 +40,7 @@ export default function BuscarPiezas(){
         // USEEFFECT y USESTATE
         <div className="buscarPiezas-container">
             <h3 className="buscarPiezas-title">Buscar Pieza</h3>
-            <input type="text" placeholder="buscar por" className="buscarPiezas-textInput"/>
+            <input type="text" placeholder="buscar por" className="buscarPiezas-textInput" name = 'tipo'/>
             {/* METERLE UN ONCLICK */}
             <button className="buscarPiezas-btn">
                 BUSCAR

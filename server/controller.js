@@ -101,9 +101,27 @@ export const createTool = async (req, res) => {
         console.log("--- Nueva herramienta creada ----");
 
         // Responder con status 200 y un mensaje
-        res.status(200).json({ message: "Herramienta creada exitosamente" });
+        // res.status(200).json({ message: "Herramienta creada exitosamente" });
     } catch (error) {
         console.error("Error al crear herramienta:", error);
         res.status(500).json({ message: "Error al crear herramienta", error });
     }
 };
+// Buscamos elemento por nombre
+export const search = async (req, res) => {
+    const busqueda = await searchForName("components", {tipo: req.body.tipo});
+    console.log(busqueda);
+    res.json(busqueda)
+    // res.redirect("http://localhost:3000/")
+}
+
+// 
+export const update = async(req, res) => {
+    console.log(req);
+    try {
+        const upd = await actualizarDocumento("components", {tipo: 'Llaves de impacto'}, {marca: 'Prueba'});
+        console.log('-----Herramienta actualizada----')
+    } catch(e) {
+        console.log("Error: " + e)
+    }
+}
