@@ -4,7 +4,7 @@ import Footer from "../components/Footer"
 import BuscarPiezas from "../components/BuscarPiezas"
 import PiezaItem from "../components/PiezaItem"
 import ListaSolicitudes from "../components/ListaSolicitudes"
-import FormularioAgregarPieza from "../components/FormularioAgregarPieza"
+import FormularioAgregarPieza from "../components/tool/FormularioAgregarPieza"
 import "../styles/Encargado.css"
 
 const Encargado = ()=>{

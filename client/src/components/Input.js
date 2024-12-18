@@ -2,11 +2,11 @@
 
 import React from "react";
 
-const Input = ({ tag, placeholder, type, name }) => {
+const Input = ({ tag, placeholder, type, name, value, onChange }) => {
     switch (tag) {
         case "input":
             return (
-                <input type={type} placeholder={placeholder} name={name} />
+                <input type={type} placeholder={placeholder} name={name} value={value} onChange={onChange} className="addPieza-textInput" required />
             )
         case "radio":
             return (
@@ -28,7 +28,7 @@ const Input = ({ tag, placeholder, type, name }) => {
             )
         case "button":
             return (
-                <button type={type}>{placeholder}</button>
+                <button type={type} className="addPieza-submitBtn" >{placeholder}</button>
             )
         default:
             return (
