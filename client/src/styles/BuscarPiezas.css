@@ -1,0 +1,27 @@
+/* Rafa / 18-12-2024 / Estilos / 1.0.0 */
+
+.buscarPiezas-container{
+    /* margin: 15px; */
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: #29324ed0;
+}
+
+.buscarPiezas-title{
+    color: white;
+    margin: 0;
+}
+
+.buscarPiezas-textInput{
+    min-width: 300px;
+    font-size: 14px;
+    padding: 3px 15px;
+    margin-bottom: 7px;
+    border: 1px solid #29324e;
+    border-radius: 5px;
+    color: #29324e;
+    margin: 0;
+}

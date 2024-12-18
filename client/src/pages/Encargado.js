@@ -1,3 +1,5 @@
+// Rafa / 18-12-2024 / Adaptando algunos contenedores para dar estilo / 1.0.0
+
 import React, {useState} from "react";
 import Header from "../components/Header"
 import Footer from "../components/Footer"
@@ -22,30 +24,35 @@ const Encargado = ()=>{
     pieza.nombre?.toLowerCase().includes(busqueda.toLowerCase())
   );
     return (
-        <div className="parent">
-            <Header />
-            <main className="main-content">
-                <div className="div2">
+        <>
+            <Header title='AREA DE ENCARGADO'/>
+            <main className="App-main">
+                <div className="main-leftContainer">
                     <BuscarPiezas onBuscar={setBusqueda} />
-                    {piezasFiltradas.map((pieza) => (
-                      <PiezaItem
-                        key={pieza.id}
-                        pieza={pieza}
-                        onActualizar={actualizarPieza}
-                        onBorrar={borrarPieza}
-                      />
-                    ))}
-                  </div>
-                  <div className="div3">
+                    <h3 className="listaPiezas-title">Listado de piezas</h3>
+                    <ul className="listaPiezas-container">
+                      <PiezaItem/>
+                      {piezasFiltradas.map((pieza) => (
+                        <PiezaItem
+                          key={pieza.id}
+                          pieza={pieza}
+                          onActualizar={actualizarPieza}
+                          onBorrar={borrarPieza}
+                        />
+                      ))}
+                    </ul>
+                    
+                </div>
+                <div className="main-rightContainer-up">
                     <ListaSolicitudes solicitudes={solicitudes} />
-                  </div>
-                  <div className="div4">
+                </div>
+                <div className="main-rightContainer-down">
                     <FormularioAgregarPieza onAgregar={agregarPieza} />
-                  </div>
+                </div>
             </main>
             <Footer />
           
-        </div>
+        </>
       );
     };
 

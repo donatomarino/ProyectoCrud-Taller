@@ -1,0 +1,65 @@
+/* Rafa / 18-12-2024 / Estilos / 1.0.0 */
+
+.pieza-item{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.pieza-header{
+    padding: 5px 10px;
+    background-color: #4D556C;
+    font-size: 15px;
+    font-weight: 500;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+.pieza-body{
+    background-color: #4d556c38;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.pieza-info{
+    font-size: 15px;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+}
+
+.pieza-buttons{
+    align-self: flex-end;
+    display: flex;
+    gap: 20px;
+}
+
+.pieza-deleteBtn,
+.pieza-getMoreBtn{
+    border-radius: 5px;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 3px 20px;
+    width: 100%;
+    border: 1px solid black;
+    background-color: #29324ec8;
+    color: white;
+    transition: background .2s ease-in-out;
+}
+
+.pieza-getMoreBtn:hover{
+    background-color: #29324e;
+}
+
+.pieza-deleteBtn{
+    background-color: #ff651eef;
+}
+
+.pieza-deleteBtn:hover{
+    background-color: #ff651e9d;
+}
+
+

@@ -3,6 +3,7 @@ import Login from "./components/login/Login"
 import Register from "./components/register/Register";
 import CreateTool from "./components/tool/CreateTool";
 import Encargado from "./pages/Encargado";
+import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 function App() {
