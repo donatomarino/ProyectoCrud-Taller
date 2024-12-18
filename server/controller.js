@@ -101,7 +101,7 @@ export const createTool = async (req, res) => {
         console.log("--- Nueva herramienta creada ----");
 
         // Responder con status 200 y un mensaje
-        res.status(200).json({ message: "Herramienta creada exitosamente" });
+        // res.status(200).json({ message: "Herramienta creada exitosamente" });
     } catch (error) {
         console.error("Error al crear herramienta:", error);
         res.status(500).json({ message: "Error al crear herramienta", error });
@@ -117,7 +117,11 @@ export const search = async (req, res) => {
 
 // 
 export const update = async(req, res) => {
-    const upd = await actualizarDocumento("components", {tipo: 'Llaves de impacto'}, {marca: 'Prueba'});
-    console.log("Hola" + upd)
-    res.send(upd)
+    console.log(req);
+    try {
+        const upd = await actualizarDocumento("components", {tipo: 'Llaves de impacto'}, {marca: 'Prueba'});
+        console.log('-----Herramienta actualizada----')
+    } catch(e) {
+        console.log("Error: " + e)
+    }
 }

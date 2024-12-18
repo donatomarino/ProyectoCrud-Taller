@@ -10,6 +10,6 @@ router.post("/login", login)
 router.get("/all-items", allItems)
 router.post("/create-tool", createTool)
 router.post("/search", search)
-router.patch("/update", update)
+router.post("/update", update)
 
 export default router;
