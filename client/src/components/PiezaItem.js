@@ -31,7 +31,6 @@ export default function PiezaItem({pieza, type, onActualizar, onBorrar}){
               ...nuevaPieza,
               [e.target.name]: e.target.value,
             });
-            console.log(nuevaPieza);
           };
     
       /* Manejar el envío del formulario */
@@ -39,7 +38,6 @@ export default function PiezaItem({pieza, type, onActualizar, onBorrar}){
         e.preventDefault();
         
         try {
-            console.log(e.target);
           // Enviar los datos al servidor
           const response = await fetch("http://127.0.0.1:3001/update", {
             method: "PATCH",
@@ -48,17 +46,17 @@ export default function PiezaItem({pieza, type, onActualizar, onBorrar}){
             },
             body: JSON.stringify(nuevaPieza),
           });
-    
+          console.log(response);
           // Manejar la respuesta del servidor
           if (response.ok) {
             const data = await response.json();
-            console.log("Pieza añadida con éxito:", data);
-    
+            
+            window.location.href = `/`;
             // Reiniciar el formulario
-            setNuevaPieza({ id: "", tipo: "", marca: "", precio_compra: "", precio_venta: "" });
+            // setNuevaPieza({ id: "", tipo: "", marca: "", precio_compra: "", precio_venta: "" });
     
             // Redirigir a la ruta principal
-            window.location.href = "/";
+            
           } else {
             console.error("Error al añadir la pieza:", response.statusText);
           }
@@ -85,7 +83,7 @@ export default function PiezaItem({pieza, type, onActualizar, onBorrar}){
                 :
 
                 <form onSubmit={(e)=>handleSubmit(e)} className='editItem-form'>
-                    <div className='editItem-formContainer'>
+              
                         <div className='editItem-dataContent'>
 
                                 <input type='text' name='id' id='id' className='editItem-textInput' placeholder='ID' onChange={handleChange}/>
@@ -99,7 +97,7 @@ export default function PiezaItem({pieza, type, onActualizar, onBorrar}){
                                 <input type='text' name='precio_compra' id='precio_venta' className='editItem-textInput' placeholder='Precio venta' onChange={handleChange}/>
                         </div>
                         
-                    </div>
+
                     
                     
                     <button className='editItem-sendChangesBtn'>Confirmar</button>

@@ -127,3 +127,29 @@ export const search = async (req, res) => {
     // Devolvemos los resultados obtenidos
     res.status(200).json(resultados);
 };
+
+// 
+export const update = async(req, res) => {
+    console.log(req.body.tipo);
+    console.log("--------------")
+    console.log("--------------")
+    console.log("--------------")
+    console.log("--------------")
+    console.log("--------------")
+
+    const {id , marca, tipo, precio_compra, precio_venta} = req.body;
+    
+    try {
+        await actualizarDocumento("components", {id: req.body.id}, {id: req.body.id, marca: req.body.marca, tipo: req.body.tipo, precio_venta: req.body.precio_venta, precio_compra: req.body.precio_compra, visible: true});
+
+        console.log('-----Herramienta actualizada----')
+        // res.json(upd)
+        // Devolvemos los resultados obtenidos
+        // res.status(200).json(resultados);
+        res
+
+        // res.redirect("http://localhost:3000/")
+    } catch(e) {
+        console.log("Error: " + e)
+    }
+}
