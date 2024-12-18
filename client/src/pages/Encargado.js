@@ -15,13 +15,31 @@ const Encargado = ()=>{
 
 
   /*Aquí tendría que solicitar las piezas de la base de datos*/
-  const agregarPieza = (pieza) => setPiezas([...piezas, pieza]);
-  const borrarPieza = (id) => setPiezas(piezas.filter((pieza) => pieza.id !== id));
-  const actualizarPieza = (id) => alert(`Actualizar pieza con ID: ${id}`);
+  // const agregarPieza = (pieza) => setPiezas([...piezas, pieza]);
+  // const borrarPieza = (id) => setPiezas(piezas.filter((pieza) => pieza.id !== id));
+  // const actualizarPieza = (id) => alert(`Actualizar pieza con ID: ${id}`);
   /*---------------------------------------------------------*/
-  const piezasFiltradas = piezas.filter((pieza) =>
-    pieza.nombre?.toLowerCase().includes(busqueda.toLowerCase())
-  );
+  // const piezasFiltradas = piezas.filter((pieza) =>
+  //   pieza.nombre?.toLowerCase().includes(busqueda.toLowerCase())
+  // );
+
+  /*Estado para manejar la informaciómn de una nueva pieza*/
+    const [nuevaPieza, setNuevaPieza] = useState({
+      id: "",
+      tipo: "",
+      marca: "",
+      precio_compra: "",
+      precio_venta: "",
+    });
+  
+    // /* Manejar el cambio en los campos del formulario */
+    // const handleChange = (e) => {
+    //   setNuevaPieza({
+    //     ...nuevaPieza,
+    //     [e.target.name]: e.target.value,
+    //   });
+    // };
+
 
     useState(()=>{
     /* Manejar el envío del formulario */
@@ -36,7 +54,7 @@ const Encargado = ()=>{
           const data = await response.json();
 
           console.log("Listado Mostrándose", data);
-          setPiezas(data);
+          setPiezas(await data.data);
 
         } else {
           console.error("Error al mostrar piezaas", response.statusText);
@@ -62,8 +80,8 @@ const Encargado = ()=>{
                         <PiezaItem
                           key={i}
                           pieza={pieza}
-                          onActualizar={actualizarPieza}
-                          onBorrar={borrarPieza}
+                          // onActualizar={actualizarPieza}
+                          // onBorrar={borrarPieza}
                         />
                       ))}
                     </ul>
@@ -73,7 +91,7 @@ const Encargado = ()=>{
                     <ListaSolicitudes solicitudes={solicitudes} />
                 </div>
                 <div className="main-rightContainer-down">
-                    <FormularioAgregarPieza onAgregar={agregarPieza} />
+                    <FormularioAgregarPieza />
                 </div>
             </main>
             <Footer />
