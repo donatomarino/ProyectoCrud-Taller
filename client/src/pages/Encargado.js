@@ -22,6 +22,34 @@ const Encargado = ()=>{
   const piezasFiltradas = piezas.filter((pieza) =>
     pieza.nombre?.toLowerCase().includes(busqueda.toLowerCase())
   );
+
+    useState(()=>{
+    /* Manejar el envío del formulario */
+    const handleSubmit = async (e) => {
+      try {
+        // Enviar los datos al servidor
+        const response = await fetch("http://127.0.0.1:3001/all-items");
+
+
+        // Manejar la respuesta del servidor
+        if (response.ok) {
+          const data = await response.json();
+
+          console.log("Listado Mostrándose", data);
+          setPiezas(data);
+
+        } else {
+          console.error("Error al mostrar piezaas", response.statusText);
+        }
+      } catch (error) {
+        console.error("Error al mostrar piezas:", error);
+      }
+    };
+
+    handleSubmit();
+
+    },[])
+
     return (
         <>
             <Header title='AREA DE ENCARGADO'/>
@@ -30,10 +58,9 @@ const Encargado = ()=>{
                     <BuscarPiezas onBuscar={setBusqueda} />
                     <h3 className="listaPiezas-title">Listado de piezas</h3>
                     <ul className="listaPiezas-container">
-                      <PiezaItem/>
-                      {piezasFiltradas.map((pieza) => (
+                      {piezas.map((pieza, i) => (
                         <PiezaItem
-                          key={pieza.id}
+                          key={i}
                           pieza={pieza}
                           onActualizar={actualizarPieza}
                           onBorrar={borrarPieza}

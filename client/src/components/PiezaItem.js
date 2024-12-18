@@ -8,6 +8,10 @@ import { useState } from "react";
 //Componente para la pieza y los botones para manejar la actulización y delete.
 export default function PiezaItem({pieza, onActualizar, onBorrar}){
 
+    const deleteItem = ()=>{
+        console.log(pieza);
+    }
+
     const [editItem, setEditItem] = useState(false);
 
     return(
@@ -15,17 +19,16 @@ export default function PiezaItem({pieza, onActualizar, onBorrar}){
             {/* Piezas de ejemplo */}
             
             <div className="pieza-header">
-                {}
-                <span className="pieza-name">Nombre: Rueda</span>
-                <span className="pieza-id">ID: 1</span>
+                <span className="pieza-name">Marca: {pieza.marca}</span>
+                <span className="pieza-id">ID: {pieza.id}</span>
             </div>
             <div className='pieza-body'>
                 {!editItem 
                 ?
                 <div className="pieza-info">
-                    <span className="pieza-brand">Marca: Mercedes</span>
-                    <span className="pieza-description">Descripción: Aquí iría una descripción del producto en sí.</span>
-                    <span className="pieza-price">Precio: 160€</span>
+                    <span className="pieza-brand">Tipo: {pieza.tipo}</span>
+                    <span className="pieza-price">Precio compra: {pieza.precio[0]}</span>
+                    <span className="pieza-price">Precio: {pieza.precio[1]}</span>
                 </div>
 
                 :
@@ -61,7 +64,7 @@ export default function PiezaItem({pieza, onActualizar, onBorrar}){
                         <button className="pieza-editItemBtn" onClick={()=>{
                             setEditItem(true);
                         }}>Editar</button>
-                        <button className="pieza-deleteBtn">Eliminar</button>
+                        <button className="pieza-deleteBtn" onClick={()=>deleteItem}>Eliminar</button>
                     </>
                         
                     :
