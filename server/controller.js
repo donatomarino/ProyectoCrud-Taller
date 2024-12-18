@@ -107,3 +107,15 @@ export const createTool = async (req, res) => {
         res.status(500).json({ message: "Error al crear herramienta", error });
     }
 };
+// Carlos / 18-12-2024 / search para la búsqueda por nombre / 1.0.0
+// Donato / 18-12-2024 / search para la búsqueda por nombre / 1.0.0
+export const search = async (req, res) => {
+    // Obtenemos el valor de búsqueda desde el cuerpo de la solicitud
+    const { nombreBusqueda } = req.body; 
+
+    // Realizamos la búsqueda usando el valor proporcionado por el usuario
+    const resultados = await searchForName("components", { tipo: nombreBusqueda });
+
+    // Devolvemos los resultados obtenidos
+    res.status(200).json(resultados);
+};
