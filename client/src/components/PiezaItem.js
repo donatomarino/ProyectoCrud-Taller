@@ -27,8 +27,8 @@ export default function PiezaItem({pieza, onActualizar, onBorrar}){
                 ?
                 <div className="pieza-info">
                     <span className="pieza-brand">Tipo: {pieza.tipo}</span>
-                    <span className="pieza-price">Precio compra: {pieza.precio[0]}</span>
-                    <span className="pieza-price">Precio: {pieza.precio[1]}</span>
+                    <span className="pieza-price">Precio compra: {pieza.precio.precio_compra}</span>
+                    <span className="pieza-price">Precio: {pieza.precio.precio_venta}</span>
                 </div>
 
                 :
@@ -47,7 +47,7 @@ export default function PiezaItem({pieza, onActualizar, onBorrar}){
                                 <input type='text' name='price' id='price' className='editItem-textInput' placeholder='Precio'/>
                         </div>
                             
-                            <textarea type='text' name='description' id='description' className='editItem-textArea' placeholder='Descripción'/>
+
                             
                         
                     </div>

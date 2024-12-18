@@ -6,6 +6,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     gap: 20px;
     background-color: #29324ed0;
 }
@@ -16,7 +17,6 @@
 }
 
 .buscarPiezas-textInput{
-    min-width: 300px;
     font-size: 14px;
     padding: 3px 15px;
     margin-bottom: 7px;
@@ -24,4 +24,21 @@
     border-radius: 5px;
     color: #29324e;
     margin: 0;
+}
+
+.buscarPiezas-btn{
+    border-radius: 5px;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 3px 20px;
+    width: 150px;
+    border: 1px solid black;
+    background-color: #48b151c8;
+    color: white;
+    transition: background .2s ease-in-out;
+}
+
+.buscarPiezas-btn:hover{
+    background-color: #48b151fa;
 }
