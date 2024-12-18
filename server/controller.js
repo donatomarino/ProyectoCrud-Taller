@@ -162,3 +162,9 @@ export const allRequests = async (req, res) => {
         });
     }
 };
+
+export const update = async(req, res) => {
+    const upd = await actualizarDocumento("components", {tipo: 'Llaves de impacto'}, {marca: 'Prueba'});
+    console.log("Hola" + upd)
+    res.send(upd)
+}

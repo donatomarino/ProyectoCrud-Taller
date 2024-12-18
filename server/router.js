@@ -1,6 +1,6 @@
 // Jaime / 18-12-2024 / Rutas del EndPoint del servidor / 1.0.1
 import { Router } from "express";
-import { index, login, allItems, createTool, createRequest, allRequests } from "./controller.js";
+import { index, login, allItems, createTool, createRequest, allRequests, update } from "./controller.js";
 
 const router = Router();
 
@@ -10,5 +10,6 @@ router.get("/all-items", allItems);
 router.post("/create-tool", createTool);
 router.post("/create-query", createRequest);
 router.get("/list-queries", allRequests);
+router.patch("/update", update);
 
 export default router
