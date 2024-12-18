@@ -1,4 +1,5 @@
 // Carlos / 17-12-2024 / PiezaItem para la página Encargado / 1.0.0
+// Rafa / 19-12-2024 / Funcionalidad editar item OPERATICA / 1.0.0
 
 import '../styles/PiezaItem.css';
 import { useState } from "react";
@@ -10,33 +11,21 @@ export default function PiezaItem({pieza, type, onActualizar, onBorrar}){
 
     const [editItem, setEditItem] = useState(false);
     /*Estado para manejar la informaciómn de una nueva pieza*/
-      const [nuevaPieza, setNuevaPieza] = useState({
-        id:"",
-        tipo: "",
-        marca: "",
-        precio: {precio_compra: "", precio_venta: ""},
-      });
-    
-      /* Manejar el cambio en los campos del formulario */
-    //   const handleChange = (e) => {
-    //     setNuevaPieza({
-    //       ...nuevaPieza,
-    //       [e.target.name]: e.target.value,
-    //     });
-    //     console.log(nuevaPieza);
-    //   };
-
-    const handleChange = (e) => {
-            setNuevaPieza({
-              ...nuevaPieza,
-              [e.target.name]: e.target.value,
-            });
-          };
     
       /* Manejar el envío del formulario */
       const handleSubmit = async (e) => {
         e.preventDefault();
-        
+        console.log((e.target[0]).value)
+
+        const itemToUpdate = {
+          id: e.target[0].value,
+          marca: e.target[1].value,
+          tipo: e.target[2].value,
+          precio_compra: e.target[3].value,
+          precio_venta: e.target[4].value,
+          
+      };
+
         try {
           // Enviar los datos al servidor
           const response = await fetch("http://127.0.0.1:3001/update", {
@@ -44,18 +33,19 @@ export default function PiezaItem({pieza, type, onActualizar, onBorrar}){
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify(nuevaPieza),
+            body: JSON.stringify(itemToUpdate),
           });
           console.log(response);
           // Manejar la respuesta del servidor
           if (response.ok) {
             const data = await response.json();
             
-            window.location.href = `/`;
-            // Reiniciar el formulario
-            // setNuevaPieza({ id: "", tipo: "", marca: "", precio_compra: "", precio_venta: "" });
-    
-            // Redirigir a la ruta principal
+            const timeOut = setTimeout(()=>{
+              window.location.href = `/encargado`;
+            },1000)
+            
+            timeOut();
+
             
           } else {
             console.error("Error al añadir la pieza:", response.statusText);
@@ -64,6 +54,7 @@ export default function PiezaItem({pieza, type, onActualizar, onBorrar}){
           console.error("Error al enviar los datos:", error);
         }
       };
+
     return(
         <li className="pieza-item">
             {/* Piezas de ejemplo */}
@@ -76,8 +67,8 @@ export default function PiezaItem({pieza, type, onActualizar, onBorrar}){
                 ?
                 <div className="pieza-info">
                     <span className="pieza-brand">Tipo: {pieza.tipo}</span>
-                    <span className="pieza-price">Precio compra: {pieza.precio_compra}</span>
-                    <span className="pieza-price">Precio: {pieza.precio_venta}</span>
+                    <span className="pieza-price">Precio compra: {pieza.precio.precio_compra}</span>
+                    <span className="pieza-price">Precio: {pieza.precio.precio_venta}</span>
                 </div>
 
                 :
@@ -86,15 +77,15 @@ export default function PiezaItem({pieza, type, onActualizar, onBorrar}){
               
                         <div className='editItem-dataContent'>
 
-                                <input type='text' name='id' id='id' className='editItem-textInput' placeholder='ID' onChange={handleChange}/>
+                                <input type='text' name='id' id='id' className='editItem-textInput' placeholder='ID'/>
 
-                                <input type='text' name='marca' id='marca' className='editItem-textInput' placeholder='Marca' onChange={handleChange}/>
+                                <input type='text' name='marca' id='marca' className='editItem-textInput' placeholder='Marca'/>
 
-                                <input type='text' name='tipo' id='tipo' className='editItem-textInput' placeholder='Tipo' onChange={handleChange}/>
+                                <input type='text' name='tipo' id='tipo' className='editItem-textInput' placeholder='Tipo'/>
                             
-                                <input type='text' name='precio_compra' id='precio_compra' className='editItem-textInput' placeholder='Precio compra' onChange={handleChange}/>
+                                <input type='text' name='precio_compra' id='precio_compra' className='editItem-textInput' placeholder='Precio compra'/>
 
-                                <input type='text' name='precio_compra' id='precio_venta' className='editItem-textInput' placeholder='Precio venta' onChange={handleChange}/>
+                                <input type='text' name='precio_compra' id='precio_venta' className='editItem-textInput' placeholder='Precio venta'/>
                         </div>
                         
 
@@ -124,17 +115,7 @@ export default function PiezaItem({pieza, type, onActualizar, onBorrar}){
             </div>
             }
                 
-
-                
             </div>
-            
-            
-
-
-
-            {/* <span>{pieza.nombre}</span>
-            <button onClick={() =>onActualizar(pieza.id)}>Actualizar</button>
-            <button onClick={() =>onBorrar(pieza.id)}>Borrar</button> */}
         </li>
     )
 }
