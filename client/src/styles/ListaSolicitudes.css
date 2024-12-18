@@ -1,0 +1,40 @@
+/* Rafa / 18-12-2024 / Estilos / 1.0.0 */
+
+.addSolicitude-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+}
+
+.addSolicitude-title{
+    margin-bottom: 20px;
+}
+
+.addSolicitude-list{
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+    overflow: auto;
+}
+
+.addSolicitude-item{
+    width: 100%;
+    list-style: none;
+    background-color:#ff651e8a;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.addSolicitude-asunto,
+.addSolicitude-descripcion{
+    padding: 3px 10px;
+    margin: 0;
+}
+
+.addSolicitude-asunto{
+    background-color:#ff651ef1;
+}

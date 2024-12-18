@@ -1,0 +1,127 @@
+/* Rafa / 18-12-2024 / Estilos / 1.0.0 */
+
+.pieza-item{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.pieza-header{
+    padding: 5px 10px;
+    background-color: #4D556C;
+    font-size: 15px;
+    font-weight: 500;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+.pieza-body{
+    background-color: #4d556c38;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.pieza-info{
+    font-size: 15px;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+}
+
+.pieza-buttons{
+    align-self: flex-end;
+    display: flex;
+    gap: 20px;
+}
+
+.pieza-deleteBtn,
+.pieza-editItemBtn{
+    border-radius: 5px;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 3px 20px;
+    width: 100%;
+    border: 1px solid black;
+    background-color: #29324ec8;
+    color: white;
+    transition: background .2s ease-in-out;
+}
+
+.pieza-editItemBtn:hover{
+    background-color: #29324e;
+}
+
+.pieza-deleteBtn{
+    background-color: #ff651eef;
+}
+
+.pieza-deleteBtn:hover{
+    background-color: #ff651e9d;
+}
+
+.editItem-form{
+    
+}
+
+.editItem-formContainer{
+    display: flex;
+    justify-content: start;
+    align-items: top;
+    margin-top: 10px;
+}
+
+.editItem-dataContent{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.editItem-label{
+    margin: 0;
+    margin: 5px;
+}
+
+.editItem-name{
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+.editItem-textInput{
+    font-size: 14px;
+    padding: 3px 15px;
+    margin-bottom: 7px;
+    border: 1px solid #29324e;
+    border-radius: 5px;
+    color: #29324e;
+    margin-right: 15px;
+}
+
+.editItem-textArea{
+    width: 500px;
+    font-size: 14px;
+    padding: 5px;
+    border: 1px solid #29324e;
+    border-radius: 5px;
+    color: #29324e;
+}
+
+.editItem-sendChangesBtn{
+    border-radius: 5px;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 3px 20px;
+    width: 100%;
+    border: 1px solid black;
+    background-color: #29324ec8;
+    color: white;
+    transition: background .2s ease-in-out;
+}
+
+.editItem-sendChangesBtn:hover{
+    background-color: #29324e;
+}
+
