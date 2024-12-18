@@ -125,10 +125,24 @@ export const search = async (req, res) => {
 
 // 
 export const update = async(req, res) => {
-    console.log(req);
+    console.log(req.body.tipo);
+    console.log("--------------")
+    console.log("--------------")
+    console.log("--------------")
+    console.log("--------------")
+    console.log("--------------")
+
+    const {id , marca, tipo, precio_compra, precio_venta} = req.body;
+    
     try {
-        const upd = await actualizarDocumento("components", {tipo: 'Llaves de impacto'}, {marca: 'Prueba'});
+        await actualizarDocumento("components", {id: req.body.id}, {id: req.body.id, marca: req.body.marca, tipo: req.body.tipo, precio_venta: req.body.precio_venta, precio_compra: req.body.precio_compra, visible: true});
+
         console.log('-----Herramienta actualizada----')
+        // res.json(upd)
+        // Devolvemos los resultados obtenidos
+        // res.status(200).json(resultados);
+
+        res.redirect("http://localhost:3000/encargado")
     } catch(e) {
         console.log("Error: " + e)
     }

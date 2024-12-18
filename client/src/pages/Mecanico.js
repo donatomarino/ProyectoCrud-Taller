@@ -93,7 +93,7 @@ const Mecanico = ()=>{
                     {/* <FormAddSolicitud/> */}
                     {/* <ListaSolicitudes solicitudes={solicitudes} /> */}
 
-                    <form  action = "http://127.0.0.1:3001/create-query" method='POST' className="addPieza-form">
+                    <form  className="addPieza-form">
                         {/* const newIncidence = {
                             tipo: req.body.tipo,
                             titulo: req.body.titulo,
