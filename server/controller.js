@@ -209,23 +209,27 @@ export const search = async (req, res) => {
 
 // Update
 export const update = async(req, res) => {
+
     const itemToUpdate = {
+        id: req.body.id,
         tipo: req.body.tipo,
         marca: req.body.marca,
         precio: {
-            precio_compra: req.body.precio.precio_compra,
-            precio_venta: req.body.precio.precio_venta,
-        }
+            precio_compra: req.body.precio_compra,
+            precio_venta: req.body.precio_venta,
+        },
+        visible: true
     };
+    console.log(itemToUpdate);
     
     try {
-        await actualizarDocumento("components", {tipo: req.body.tipo}, itemToUpdate);
+        await actualizarDocumento("components", {id: req.body.id}, itemToUpdate);
 
         return res.status(200).json({
             message: "Herramienta modificada exitosamente",
             data: JSON.stringify(itemToUpdate)
         });
-        // res.redirect("http://localhost:3000/")
+
     } catch(e) {
         console.log("Error: " + e)
     }
