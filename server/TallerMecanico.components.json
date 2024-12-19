@@ -1,0 +1,195 @@
+[{
+  "_id": {
+    "$oid": "67607e0d5e7890f686226691"
+  },
+  "id": "0",
+  "tipo": "Llaves de impacto",
+  "marca": "Borsch",
+  "precio": {
+    "precio_compra": "40",
+    "precio_venta": "120"
+  },
+  "visible": "true"
+},
+{
+  "_id": {
+    "$oid": "67607f215e7890f686226692"
+  },
+  "id": "1",
+  "tipo": "EPIS",
+  "marca": "Random",
+  "precio": {
+    "precio_compra":" 30",
+    "precio_venta": "90"
+  },
+  "visible": "true"
+},
+{
+  "_id": {
+    "$oid": "67607f785e7890f686226693"
+  },
+  "id": "2",
+  "tipo": "Llave Allen",
+  "marca": "Urrea",
+  "precio": {
+    "precio_compra": "5",
+    "precio_venta": "20"
+  },
+  "visible": "true"
+},
+{
+  "_id": {
+    "$oid": "67607f9f5e7890f686226694"
+  },
+  "id": "3",
+  "tipo": "Escobilla de Fierro, mango plastico",
+  "marca": "Urrea",
+  "precio": {
+    "precio_compra": "30",
+    "precio_venta": "75"
+  },
+  "visible": "true"
+},
+{
+  "_id": {
+    "$oid": "676080005e7890f686226695"
+  },
+  "id": "4",
+  "tipo": "Destornillador",
+  "marca": "DeWalt",
+  "precio": {
+    "precio_compra": "90",
+    "precio_venta": "400"
+  },
+  "visible": "true"
+},
+{
+  "_id": {
+    "$oid": "676080175e7890f686226696"
+  },
+  "id": "5",
+  "tipo": "Extension 8'' x 3/4",
+  "marca": "Blue Point",
+  "precio": {
+    "precio_compra": "10",
+    "precio_venta": "35"
+  },
+  "visible": "true"
+},
+{
+  "_id": {
+    "$oid": "6760802b5e7890f686226697"
+  },
+  "id": "6",
+  "tipo": "Martillo de Goma",
+  "marca": "Urrea",
+  "precio": {
+    "precio_compra": "12",
+    "precio_venta": "34"
+  },
+  "visible": "true"
+},
+{
+  "_id": {
+    "$oid": "676080595e7890f686226698"
+  },
+  "id": "7",
+  "tipo": "Pinzas de corte",
+  "marca": "Makita",
+  "precio": {
+    "precio_compra": "130",
+    "precio_venta": "450"
+  },
+  "visible": "true"
+},
+{
+  "_id": {
+    "$oid": "67619c4f3126386b0ca334ee"
+  },
+  "id": "8",
+  "tipo": "Comba 5 Ibs",
+  "marca": "S/M",
+  "precio": {
+    "precio_compra": "8",
+    "precio_venta": "19"
+  },
+  "visible": "true"
+},
+{
+  "_id": {
+    "$oid": "67619cbd3126386b0ca334ef"
+  },
+  "id": "9",
+  "tipo": "Llave de tubo",
+  "marca": "Craftsman",
+  "precio": {
+    "precio_compra": "160",
+    "precio_venta": "700"
+  },
+  "visible": "true"
+},
+{
+  "_id": {
+    "$oid": "67619d2a3126386b0ca334f0"
+  },
+  "id": "10",
+  "tipo": "Gato de elavación",
+  "marca": "Urrea",
+  "precio": {
+    "precio_compra": "170",
+    "precio_venta": "500"
+  },
+  "visible": "true"
+},
+{
+  "_id": {
+    "$oid": "67619d843126386b0ca334f1"
+  },
+  "id": "11",
+  "tipo": "Abrazadera",
+  "marca": "Borsch",
+  "precio": {
+    "precio_compra": "100",
+    "precio_venta": "490"
+  },
+  "visible": "true"
+},
+{
+  "_id": {
+    "$oid": "67619dbc3126386b0ca334f2"
+  },
+  "id": "12",
+  "tipo": "Llave inglesa",
+  "marca": "Stanley",
+  "precio": {
+    "precio_compra": "150",
+    "precio_venta": "600"
+  },
+  "visible": "true"
+},
+{
+  "_id": {
+    "$oid": "67619e443126386b0ca334f3"
+  },
+  "id": "13",
+  "tipo": "Llave Soplete",
+  "marca": "Lincoln",
+  "precio": {
+    "precio_compra": "220",
+    "precio_venta": "900"
+  },
+  "visible": "true"
+},
+{
+  "_id": {
+    "$oid": "67619e5b3126386b0ca334f4"
+  },
+  "id": "14",
+  "tipo": "Amortiguador",
+  "marca": "KYB",
+  "precio": {
+    "precio_compra": "300",
+    "precio_venta": "1200"
+  },
+  "visible": "true"
+}]
