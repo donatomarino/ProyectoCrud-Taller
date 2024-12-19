@@ -24,10 +24,8 @@ const auth = getAuth(app);
 async function signIn(email, password) {
   try {
     const credentials = await signInWithEmailAndPassword(auth, email, password);
-    // setLoggedIn(true);
     return credentials;
   } catch (error) {
-    console.error("Error en la autenticación:", error);
     throw error; //erro se maneja en controller
   }
 };
