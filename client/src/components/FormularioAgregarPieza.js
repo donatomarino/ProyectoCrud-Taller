@@ -2,7 +2,7 @@
 // Rafa / 18-12-2024 / Adaptando algunos contenedores para dar estilo / 1.0.0
 // Rafa / 19-12-2024 / Funcionalidad añadir piezas corregida / 1.0.0
 
-import React, {useState} from "react";
+import React from "react";
 import '../styles/FormularioAgregarPieza.css';
 
 

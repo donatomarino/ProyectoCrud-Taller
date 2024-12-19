@@ -272,7 +272,31 @@ router.get("/all-requests", allRequests);
  *         description: Error al obtener las incidencias.
  */
 router.get("/all-incidences", allIncidences);
-
-router.patch("/request-solved", requestSolved)
+/**
+ * @swagger
+ * /request-solved:
+ *   patch:
+ *     summary: Marca una solicitud como resuelta y la mueve a una nueva colección.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               datos:
+ *                 type: object
+ *                 properties:
+ *                   coleccion:
+ *                     type: string
+ *                   title:
+ *                     type: string
+ *                   descripcion:
+ *                     type: string
+ *     responses:
+ *       200:
+ *         description: Solicitud/Incidencia solucionada correctamente y movida a la nueva colección.
+ */
+router.patch("/request-solved", requestSolved);
 
 export default router;
