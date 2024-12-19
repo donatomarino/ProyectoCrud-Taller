@@ -110,10 +110,21 @@ async function actualizarDocumento(coleccion, filtro, actualizacion) {
     return resultado;
 }
 
+//Borrar  
+async function borrarDocumento(coleccion, filtro) {
+    const client = await connectToMongo();
+    const db = client.db(mydb);
+    const collection = db.collection(coleccion);
+    const resultado = await collection.deleteOne(filtro);
+    console.log(`${resultado.deletedCount} documento(s) borrado(s).`);
+    await client.close();
+}
+
 export {
     crearColeccion,
     insertarDocumento,
     verTodos,
     actualizarDocumento,
-    searchForName
+    searchForName,
+    borrarDocumento
 };

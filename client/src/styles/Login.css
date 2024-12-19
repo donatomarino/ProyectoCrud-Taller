@@ -1,13 +1,13 @@
 /* Estilo general de la página */
 body {
-    /* Fondo suave para contrastar con el formulario */
+    /* Fondo suave para contrastar con el formulario
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: grey;
+    background-color: grey; */
 }
 
 /* Contenedor principal del formulario */

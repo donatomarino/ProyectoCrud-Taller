@@ -1,9 +1,12 @@
 // Jaime / 18-12-2024 / Funciones del controller con respuesta del servidor / 1.0.1
 // Donato - Jaime / 18-12-2024 / Revision y implementación funcion update
+// Donato - Carlos / 18-12-2024 / search para la búsqueda por nombre / 1.0.0
 // Donato / 19-12-2024 / Implementación funcion crearIncidencia y deleteItem
 // Rafa / 19-12-2024 / Pequeños ajustes para recibir en el front
+// Donato / 19-12-2024 / Implementación función para almacenar solicitudes/incidencias que están solucionadas
 
 //----Importación authOperations
+import e from 'express';
 import { signIn } from './authOperations.js';
 
 //----Importación MongoOperations
@@ -12,7 +15,8 @@ import {
     verTodos,
     searchForName,
     actualizarDocumento,
-    crearColeccion
+    crearColeccion,
+    borrarDocumento
 } from './mongoOperations.js';
 
 /**
@@ -149,6 +153,7 @@ export const createTool = async (req, res) => {
  * Crea una nueva solicitud
  * @param {*} req 
  * @param {*} res 
+ * @returns res.status -> respuesta del servidor en JSON
  */
 export const createRequest = async (req, res) => {
     try {
@@ -156,8 +161,7 @@ export const createRequest = async (req, res) => {
         const newRequest = {
             // tipo: req.body.tipo,
             title: req.body.title,
-            descripcion: req.body.descripcion,
-            resuelta: "false",
+            descripcion: req.body.descripcion
         };
 
         // Insertar el documento en la base de datos
@@ -208,7 +212,12 @@ export const allRequests = async (req, res) => {
     }
 };
 
-// Mostrar todas las incidencias
+/**
+ * Mostrar todas las incidencias
+ * @param {*} req 
+ * @param {*} res 
+ * @returns res.status -> respuesta del servidor en JSON
+ */
 export const allIncidences = async (req, res) => {
     try {
         // Obtener todos los elementos desde la base de datos
@@ -240,14 +249,18 @@ export const allIncidences = async (req, res) => {
     }
 };
 
-// Crear una nueva incidencia
+/**
+ * Crea nueva incidencia
+ * @param {*} req 
+ * @param {*} res 
+ * @returns res.status -> respuesta del servidor en JSON
+ */
 export const createIncidence = async (req, res) => {
     try {
         // los datos de la incidencia se almacenan en esta constante
         const newIncidence = {
             title: req.body.title,
-            descripcion: req.body.descripcion,
-            resuelta: "false",
+            descripcion: req.body.descripcion
         };
 
         // Insertar el documento en la base de datos
@@ -261,8 +274,6 @@ export const createIncidence = async (req, res) => {
     }
 };
 
-// Carlos / 18-12-2024 / search para la búsqueda por nombre / 1.0.0
-// Donato / 18-12-2024 / search para la búsqueda por nombre / 1.0.0
 //Buscar una herramienta por tipo
 export const search = async (req, res) => {
     // Obtenemos el valor de búsqueda desde el cuerpo de la solicitud
@@ -310,6 +321,23 @@ export const deleteItem = async (req, res) => {
 
         return res.status(200).json({
             message: "Herramienta borrada exitosamente"
+        });
+    } catch (e) {
+        console.log("Error: " + e)
+    }
+}
+
+// Creación de otra coleccion que almacena las solicitudes revisadas
+export const requestSolved = async (req, res) => {
+    const {datos} = req.body;
+    console.log(datos.coleccion);
+
+    try {
+        await crearColeccion('request-resolved', datos); // Creamos nueva colección, si no existe añade simplemente el documento
+        await borrarDocumento(datos.coleccion, {title: datos.title}) // Borramos el documento de la colección actual
+
+        return res.status(200).json({
+            message: "Solicitud/Incidencia solucionada correctamente"
         });
     } catch (e) {
         console.log("Error: " + e)
