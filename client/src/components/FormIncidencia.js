@@ -1,25 +1,25 @@
-// Rafa / 19-12-2024 / Formulario y peticiones http SOLICITUDES
+// Rafa / 19-12-2024 / Formulario y peticiones http INCIDENCIAS
 
-const FormAddSolicitud = ()=>{
+const FormIncidencia = ()=>{
 
     const sendIncidencia = async (e)=>{
         e.preventDefault();
         
-        const newSolicitud = {
+        const newIncidence = {
             title: e.target[0].value,
             descripcion: e.target[1].value,
             resuelta: "false"
         };
-        console.log(newSolicitud);
+        console.log(newIncidence);
 
         try {
             // Enviar los datos al servidor
-            const response = await fetch("http://127.0.0.1:3001/solicitudes", {
+            const response = await fetch("http://127.0.0.1:3001/incidencias", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                    body: JSON.stringify(newSolicitud),
+                    body: JSON.stringify(newIncidence),
             });
 
             // Manejar la respuesta del servidor
@@ -40,7 +40,7 @@ const FormAddSolicitud = ()=>{
     return (
         <form onSubmit={(e)=>sendIncidencia(e)} className="addSolicitud-form">
 
-                        <h3 className="addPieza-title">Nueva Soliciutd</h3>
+                        <h3 className="addPieza-title">Nueva Incidencia</h3>
 
                         <input
                         name="titulo"
@@ -59,4 +59,4 @@ const FormAddSolicitud = ()=>{
     )
 }
 
-export default FormAddSolicitud;
+export default FormIncidencia;

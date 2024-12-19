@@ -21,6 +21,17 @@
     color: #29324e;
 }
 
+.addPieza-textArea{
+    font-size: 14px;
+    padding: 3px 15px;
+    margin-bottom: 7px;
+    border: 1px solid #29324e;
+    border-radius: 5px;
+    color: #29324e;
+    width: 100%;
+    min-height: 250px;
+}
+
 .addPieza-submitBtn{
     border-radius: 5px;
     margin-top: 10px;

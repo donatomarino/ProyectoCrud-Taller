@@ -1,6 +1,7 @@
 // Jaime / 18-12-2024 / Funciones del controller con respuesta del servidor / 1.0.1
 // Donato - Jaime / 18-12-2024 / Revision y implementación funcion update
 // Donato / 19-12-2024 / Implementación funcion crearIncidencia y deleteItem
+// Rafa / 19-12-2024 / Pequeños ajustes para recibir en el front
 
 //----Importación authOperations
 import { signIn } from './authOperations.js';

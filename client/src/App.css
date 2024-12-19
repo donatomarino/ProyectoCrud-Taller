@@ -86,6 +86,11 @@
   text-align: center;
 }
 
+.main-rightContainer{
+  max-height: calc(100dvh - 80px);
+  margin-bottom: 50px;
+}
+
 .main-rightContainer-up{
   grid-area: rightUp;
   display: flex;
