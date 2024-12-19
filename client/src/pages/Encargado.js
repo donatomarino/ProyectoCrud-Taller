@@ -1,7 +1,7 @@
 // Rafa / 18-12-2024 / Adaptando algunos contenedores para dar estilo / 1.0.0
 // Rafa / 19-12-2024 / Limpiando código y comentando / 1.0.0
 
-import React, {useEffect, useState} from "react";
+import React, {useState, useEffect} from "react";
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 import BuscarPiezas from "../components/BuscarPiezas"

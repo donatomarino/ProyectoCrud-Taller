@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { index, login, allItems, createTool, search, update, createIncidence, createRequest, deleteItem, allRequests, allIncidences } from "./controller.js";
+import { index, login, allItems, createTool, search, update, createIncidence, createRequest, deleteItem, allRequests, allIncidences, requestSolved } from "./controller.js";
 
 const router = Router();
 
@@ -272,5 +272,7 @@ router.get("/all-requests", allRequests);
  *         description: Error al obtener las incidencias.
  */
 router.get("/all-incidences", allIncidences);
+
+router.patch("/request-solved", requestSolved)
 
 export default router;
