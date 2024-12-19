@@ -111,6 +111,12 @@ export const createTool = async (req, res) => {
 
         console.log("--- Nueva herramienta creada ----");
 
+        // Responder con estado 200 y los datos obtenidos
+        return res.status(200).json({
+            message: "Herramienta creada con éxito",
+            data: newTool
+        });
+
         // Responder con status 200 y un mensaje
         // res.status(200).json({ message: "Herramienta creada exitosamente" });
     } catch (error) {
@@ -238,7 +244,7 @@ export const update = async(req, res) => {
 // Borrar elemento de la lista
 export const deleteItem = async(req, res) => {    
     try {
-        await actualizarDocumento("components", {tipo: req.body.tipo}, {visible: "false"});
+        await actualizarDocumento("components", {tipo: req.body.tipo}, {visible: false});
 
         return res.status(200).json({
             message: "Herramienta borrada exitosamente"

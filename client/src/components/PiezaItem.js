@@ -10,15 +10,14 @@ import { useState } from "react";
 export default function PiezaItem({pieza, type, onActualizar, onBorrar}){
 
     const [editItem, setEditItem] = useState(false);
-    /*Estado para manejar la informaciómn de una nueva pieza*/
     
-      /* Manejar el envío del formulario */
+      //FUNCIÓN PARA EDITAR UNA HERRAMIENTA
       const handleSubmit = async (e) => {
         e.preventDefault();
         console.log((e.target[0]).value)
 
         const itemToUpdate = {
-          id: e.target[0].value,
+          id: parseInt(e.target[0].value),
           marca: e.target[1].value,
           tipo: e.target[2].value,
           precio_compra: e.target[3].value,
@@ -54,6 +53,33 @@ export default function PiezaItem({pieza, type, onActualizar, onBorrar}){
           console.error("Error al enviar los datos:", error);
         }
       };
+
+      //FUNCIÓN PARA ELIMINAR UNA HERRAMIENTA
+      const deleteItem = async(e)=>{
+        console.log(e.target.id)
+        const idToDelete = { tipo: e.target.id, visible: true };
+        try{
+          const response = await fetch("http://127.0.0.1:3001/delete-item", {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(idToDelete),
+          });
+
+          if(response.ok){
+            console.log('Pieza borrada con éxito');
+            window.location.href = `/encargado`;
+          }else{
+            console.log('Ha habido un problema');
+          }
+        }catch(e){
+          console.log('Error', e)
+        }
+        
+      }
+
+
 
     return(
         <li className="pieza-item">
@@ -102,7 +128,7 @@ export default function PiezaItem({pieza, type, onActualizar, onBorrar}){
                     <button className="pieza-editItemBtn" onClick={()=>{
                         setEditItem(true);
                     }}>Editar</button>
-                    <button className="pieza-deleteBtn">Eliminar</button>
+                    <button id={pieza.tipo} className="pieza-deleteBtn" onClick={(e)=>deleteItem(e)}>Eliminar</button>
                 </>
                     
                 :

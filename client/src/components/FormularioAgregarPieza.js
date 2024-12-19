@@ -43,14 +43,11 @@ export default function FormularioAgregarPieza({onAgregar}){
         const data = await response.json();
         console.log("Pieza añadida con éxito:", data);
 
-        // Llamar al callback para actualizar el estado del componente padre
-        onAgregar(nuevaPieza);
-
         // Reiniciar el formulario
         setNuevaPieza({ id: "", tipo: "", marca: "", precio_compra: "", precio_venta: "" });
 
         // Redirigir a la ruta principal
-        // window.location.href = "/";
+        window.location.href = "/encargado";
       } else {
         console.error("Error al añadir la pieza:", response.statusText);
       }
