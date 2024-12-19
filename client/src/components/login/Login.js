@@ -38,8 +38,8 @@ export default function Login() {
     };
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
+        <div className='login-container'>
+            <form onSubmit={handleSubmit} className='login-form'>
                 <div className="form-group">
                     <Input tag="input" placeholder="ADMIN/USER" type="text" name="email" />
                 </div>

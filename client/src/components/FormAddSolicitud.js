@@ -44,7 +44,7 @@ const FormAddSolicitud = ()=>{
         
         <form onSubmit={(e)=>sendIncidencia(e)} className="addSolicitud-form">
 
-            <h3 className="addPieza-title">Nueva Soliciutd</h3>
+            <h3 className="addPieza-title">Solicitud nueva pieza</h3>
 
             <input
             name="titulo"
@@ -54,7 +54,7 @@ const FormAddSolicitud = ()=>{
 
             <textarea
             name="descripcion"
-            placeholder="Escribe aquí la descripción de tu incidencia"
+            placeholder="Solicita recambios de una pieza"
             className="addPieza-textArea"
             />
 

@@ -1,7 +1,7 @@
 // Rafa / 18-12-2024 / Adaptando algunos contenedores para dar estilo / 1.0.0
 // Rafa / 19-12-2024 / Limpiando código y comentando / 1.0.0
 
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 import BuscarPiezas from "../components/BuscarPiezas"
@@ -15,7 +15,7 @@ const Mecanico = ()=>{
     const [piezas, setPiezas] = useState([]);
 
     //Al cargar el componente -> solicitud de lista 
-    useState(()=>{
+    useEffect(()=>{
 
     /* Manejar el envío del formulario */
     const getItems = async (e) => {
