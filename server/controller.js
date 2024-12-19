@@ -96,14 +96,14 @@ export const allItems = async (req, res) => {
 export const createTool = async (req, res) => {
     try {
         const newTool = {
-            id: req.body.id,
+            id: parseInt(req.body.id),
             tipo: req.body.tipo,
             marca: req.body.marca,
             precio: {
-                precio_compra: req.body.precio_compra,
-                precio_venta: req.body.precio_venta,
+                precio_compra: parseInt(req.body.precio_compra),
+                precio_venta: parseInt(req.body.precio_venta),
             },
-            visible: "true",
+            visible: true,
         };
 
         // Insertar el documento en la base de datos
@@ -244,7 +244,7 @@ export const update = async(req, res) => {
 // Borrar elemento de la lista
 export const deleteItem = async(req, res) => {    
     try {
-        await actualizarDocumento("components", {tipo: req.body.tipo}, {visible: false});
+        await actualizarDocumento("components", {id: parseInt(req.body.id)}, {visible: false});
 
         return res.status(200).json({
             message: "Herramienta borrada exitosamente"

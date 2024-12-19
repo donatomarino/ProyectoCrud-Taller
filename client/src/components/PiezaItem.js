@@ -7,9 +7,10 @@ import { useState } from "react";
 
 
 //Componente para la pieza y los botones para manejar la actulización y delete.
-export default function PiezaItem({pieza, type, onActualizar, onBorrar}){
+export default function PiezaItem( { pieza, type, piezas, id } ){
 
     const [editItem, setEditItem] = useState(false);
+    const [editing, setEditing] = useState(false);
     
       //FUNCIÓN PARA EDITAR UNA HERRAMIENTA
       const handleSubmit = async (e) => {
@@ -56,8 +57,8 @@ export default function PiezaItem({pieza, type, onActualizar, onBorrar}){
 
       //FUNCIÓN PARA ELIMINAR UNA HERRAMIENTA
       const deleteItem = async(e)=>{
-        console.log(e.target.id)
-        const idToDelete = { tipo: e.target.id, visible: true };
+        console.log(typeof e.target.id)
+        const idToDelete = { id: parseInt(e.target.id), visible: true };
         try{
           const response = await fetch("http://127.0.0.1:3001/delete-item", {
             method: "PATCH",
@@ -70,6 +71,11 @@ export default function PiezaItem({pieza, type, onActualizar, onBorrar}){
           if(response.ok){
             console.log('Pieza borrada con éxito');
             window.location.href = `/encargado`;
+            // const timeOut = setTimeout(()=>{
+            //   window.location.href = `/encargado`;
+            // },1000)
+            
+            // timeOut();
           }else{
             console.log('Ha habido un problema');
           }
@@ -103,7 +109,7 @@ export default function PiezaItem({pieza, type, onActualizar, onBorrar}){
               
                         <div className='editItem-dataContent'>
 
-                                <input type='text' name='id' id='id' className='editItem-textInput' placeholder='ID'/>
+                                <input type='text' name='id' id='id' value={id} readonly={true} className='editItem-textInput' placeholder='ID'/>
 
                                 <input type='text' name='marca' id='marca' className='editItem-textInput' placeholder='Marca'/>
 
@@ -128,7 +134,7 @@ export default function PiezaItem({pieza, type, onActualizar, onBorrar}){
                     <button className="pieza-editItemBtn" onClick={()=>{
                         setEditItem(true);
                     }}>Editar</button>
-                    <button id={pieza.tipo} className="pieza-deleteBtn" onClick={(e)=>deleteItem(e)}>Eliminar</button>
+                    <button id={pieza.id} className="pieza-deleteBtn" onClick={(e)=>deleteItem(e)}>Eliminar</button>
                 </>
                     
                 :

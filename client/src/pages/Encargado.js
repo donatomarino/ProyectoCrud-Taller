@@ -14,32 +14,9 @@ const Encargado = ( { type })=>{
     const [busqueda, setBusqueda] = useState("");
 
 
-  /*Aquí tendría que solicitar las piezas de la base de datos*/
-  // const agregarPieza = (pieza) => setPiezas([...piezas, pieza]);
-  // const borrarPieza = (id) => setPiezas(piezas.filter((pieza) => pieza.id !== id));
-  // const actualizarPieza = (id) => alert(`Actualizar pieza con ID: ${id}`);
-  /*---------------------------------------------------------*/
-  // const piezasFiltradas = piezas.filter((pieza) =>
-  //   pieza.nombre?.toLowerCase().includes(busqueda.toLowerCase())
-  // );
-
-  /*Estado para manejar la informaciómn de una nueva pieza*/
-    const [nuevaPieza, setNuevaPieza] = useState({
-      id: "",
-      tipo: "",
-      marca: "",
-      precio_compra: "",
-      precio_venta: "",
-    });
-  
-    // /* Manejar el cambio en los campos del formulario */
-    // const handleChange = (e) => {
-    //   setNuevaPieza({
-    //     ...nuevaPieza,
-    //     [e.target.name]: e.target.value,
-    //   });
-    // };
-
+    // const getPiezasNum = ()=>{
+    //   console.log(piezas);
+    // }
 
     useState(()=>{
     /* Manejar el envío del formulario */
@@ -47,7 +24,6 @@ const Encargado = ( { type })=>{
       try {
         // Enviar los datos al servidor
         const response = await fetch("http://127.0.0.1:3001/all-items");
-
 
         // Manejar la respuesta del servidor
         if (response.ok) {
@@ -81,6 +57,7 @@ const Encargado = ( { type })=>{
                         <PiezaItem
                           key={i}
                           pieza={pieza}
+                          id={pieza.id}
                           type= 'encargado'
                           // onActualizar={actualizarPieza}
                           // onBorrar={borrarPieza}
@@ -93,7 +70,7 @@ const Encargado = ( { type })=>{
                     <ListaSolicitudes solicitudes={solicitudes} />
                 </div>
                 <div className="main-rightContainer-down">
-                    <FormularioAgregarPieza />
+                    <FormularioAgregarPieza piezas={piezas.length}/>
                 </div>
             </main>
             <Footer />

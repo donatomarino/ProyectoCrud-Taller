@@ -6,28 +6,22 @@ import React, {useState} from "react";
 import '../styles/FormularioAgregarPieza.css';
 
 
-export default function FormularioAgregarPieza({onAgregar}){
+export default function FormularioAgregarPieza({piezas}){
 
-  /*Estado para manejar la informaciómn de una nueva pieza*/
-    const [nuevaPieza, setNuevaPieza] = useState({
-      id: "",
-      tipo: "",
-      marca: "",
-      precio_compra: "",
-      precio_venta: "",
-    });
-  
-    /* Manejar el cambio en los campos del formulario */
-    const handleChange = (e) => {
-      setNuevaPieza({
-        ...nuevaPieza,
-        [e.target.name]: e.target.value,
-      });
-    };
 
   /* Manejar el envío del formulario */
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log((e.target[0]).value)
+
+    const itemToUpdate = {
+      id: parseInt(e.target[0].value),
+      marca: e.target[1].value,
+      tipo: e.target[2].value,
+      precio_compra: e.target[3].value,
+      precio_venta: e.target[4].value,
+      
+  };
     try {
       // Enviar los datos al servidor
       const response = await fetch("http://127.0.0.1:3001/create-tool", {
@@ -35,16 +29,13 @@ export default function FormularioAgregarPieza({onAgregar}){
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(nuevaPieza),
+        body: JSON.stringify(itemToUpdate),
       });
 
       // Manejar la respuesta del servidor
       if (response.ok) {
         const data = await response.json();
         console.log("Pieza añadida con éxito:", data);
-
-        // Reiniciar el formulario
-        setNuevaPieza({ id: "", tipo: "", marca: "", precio_compra: "", precio_venta: "" });
 
         // Redirigir a la ruta principal
         window.location.href = "/encargado";
@@ -60,17 +51,18 @@ export default function FormularioAgregarPieza({onAgregar}){
         <form onSubmit={(e)=>handleSubmit(e)} className="addPieza-form">
             <h3 className="addPieza-title">Añadir Nueva Pieza</h3>
             <input
+              type="number"
               name="id"
               placeholder="ID"
+              value={piezas}
+              readOnly
               // value={nuevaPieza.id}
-              onChange={handleChange}
               className="addPieza-textInput"
             />
             <input
               name="marca"
               placeholder="Marca"
               // value={nuevaPieza.nombre}
-              onChange={handleChange}
               className="addPieza-textInput"
             />
 
@@ -78,22 +70,21 @@ export default function FormularioAgregarPieza({onAgregar}){
               name="tipo"
               placeholder="Tipo"
               // value={nuevaPieza.tipo}
-              onChange={handleChange}
               className="addPieza-textInput"
             />
             
             <input
+              type="number"
               name="precio_compra"
               placeholder="Precio Compra"
               // value={nuevaPieza.precio_compra}
-              onChange={handleChange}
               className="addPieza-textInput"
             />
             <input
+              type="number"
               name="precio_venta"
               placeholder="Precio Venta"
               // value={nuevaPieza.precio_venta}
-              onChange={handleChange}
               className="addPieza-textInput"
             />
             <button type="submit" className="addPieza-submitBtn">AÑADIR</button>
