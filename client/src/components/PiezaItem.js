@@ -2,8 +2,8 @@
 // Rafa / 19-12-2024 / Funcionalidad editar item OPERATIVA / 1.0.0
 // Rafa / 19-12-2024 / Limpiando código y comentado / 1.0.0
 
-import '../styles/PiezaItem.css';
 import { useState } from "react";
+import '../styles/PiezaItem.css';
 
 //Componente para la pieza y los botones para manejar la actulización y delete.
 export default function PiezaItem( { pieza, type, piezas, id } ){
