@@ -53,7 +53,7 @@ export default function PiezaItem( { pieza, type, piezas, id } ){
       //FUNCIÓN PARA ELIMINAR UNA HERRAMIENTA
       const deleteItem = async(e)=>{
 
-        const idToDelete = { id: parseInt(e.target.id), visible: true };
+        const idToDelete = { id: e.target.id, visible: "true" };
 
         //Realizamos la solicitud PATCH para settear el estado en NO VISIBLE
         try{
@@ -68,6 +68,13 @@ export default function PiezaItem( { pieza, type, piezas, id } ){
           if(response.ok){
             console.log('Pieza borrada con éxito');
             window.location.href = `/encargado`;
+            // const timeOut = ()=>{
+            //   setTimeout(()=>{
+            //     window.location.href = `/encargado`;
+            //   }, 1000)
+            // }
+            // timeOut();
+            
           }else{
             console.log('Ha habido un problema');
           }
@@ -97,7 +104,7 @@ export default function PiezaItem( { pieza, type, piezas, id } ){
               
                   <div className='editItem-dataContent'>
 
-                    <input type='text' name='id' id='id' value={id} readonly={true} className='editItem-textInput' placeholder='ID'/>
+                    <input type='text' name='id' id='id' value={id} disabled={true} className='editItem-textInput' placeholder='ID'/>
 
                     <input type='text' name='marca' id='marca' className='editItem-textInput' placeholder='Marca'/>
 

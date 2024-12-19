@@ -56,7 +56,7 @@ export default function FormularioAgregarPieza({piezas}){
               name="id"
               placeholder="ID"
               value={piezas}
-              readOnly
+              disabled={true}
               className="addPieza-textInput"
             />
 

@@ -9,8 +9,7 @@ const FormAddSolicitud = ()=>{
     
         const newSolicitud = {
             title: e.target[0].value,
-            descripcion: e.target[1].value,
-            resuelta: "false"
+            descripcion: e.target[1].value
         };
         console.log(newSolicitud);
 

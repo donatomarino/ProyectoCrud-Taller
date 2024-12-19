@@ -34,12 +34,14 @@ export default function ListaIncidencias({solicitudes}){
         <div className="addSolicitude-container">
             <h3 className="addSolicitude-title">Indicencias</h3>
             <ul className="addSolicitude-list">
-                {requests && requests.map((request, i) => (
+                {requests ? requests.map((request, i) => (
                     <li className="addSolicitude-item" key={i}>
                     <p className="addSolicitude-asunto"><span>Asunto:</span>{request.title}</p>
                     <p className="addSolicitude-descripcion"><span>Descripción:</span>{request.descripcion}</p>
                 </li>
-                ))}
+                ))
+            : <h5>No hay incidencias pendientes</h5>
+            }
 
             </ul>
         </div>

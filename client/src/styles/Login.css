@@ -1,0 +1,131 @@
+/* Estilo general de la página */
+body {
+    /* Fondo suave para contrastar con el formulario */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: grey;
+}
+
+/* Contenedor principal del formulario */
+form {
+    width: 100%;
+    max-width: 450px; /* Ancho máximo del formulario */
+    padding: 40px;
+     /* Fondo blanco para el formulario */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil para darle profundidad */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Título del formulario */
+h2 {
+    text-align: center;
+    font-size: 24px;
+    color: #333; /* Color oscuro para contraste */
+    margin-bottom: 20px;
+}
+
+/* Estilo de los grupos de entrada */
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilo de los inputs (text, password, radio) */
+input[type="text"],
+input[type="password"],
+input[type="submit"],
+input[type="radio"] {
+    width: 100%;
+    padding: 15px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #2e2626;
+    color: #333;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Estilo de los campos de texto (input[type="text"] y input[type="password"]) */
+input[type="text"],
+input[type="password"] {
+    background-color: #f9f9f9; /* Fondo suave */
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #4CAF50; /* Cambio de borde al enfocar */
+    background-color: #ffffff; /* Fondo blanco al enfocar */
+    outline: none;
+}
+
+/* Estilo de los botones */
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+    padding: 15px;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+input[type="submit"]:active {
+    background-color: #3e8e41;
+}
+
+/* Estilo de los botones radio */
+input[type="radio"] {
+    width: auto;
+    margin-top: 10px;
+}
+
+/* Estilo de los placeholders */
+input::placeholder {
+    color: #888;
+    font-style: italic;
+}
+
+/* Mensajes o enlaces adicionales */
+.login-links {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.login-links a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.login-links a:hover {
+    text-decoration: underline;
+}
+
+/* Animación para mostrar el formulario suavemente */
+form {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Animación para el fade-in */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

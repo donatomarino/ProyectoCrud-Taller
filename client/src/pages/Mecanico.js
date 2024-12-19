@@ -43,7 +43,7 @@ const Mecanico = ()=>{
             <Header title='AREA DE MECÁNICOS'/>
             <main className="App-main">
                 <div className="main-leftContainer">
-                    <BuscarPiezas/>
+                    <BuscarPiezas type='mecanico'/>
                     <h3 className="listaPiezas-title">Listado de herramientas</h3>
                     <ul className="listaPiezas-container">
                       {piezas.map((pieza, i) => (

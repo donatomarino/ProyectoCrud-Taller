@@ -5,7 +5,7 @@ import {useState } from 'react';
 import '../styles/BuscarPiezas.css';
 import PiezaItem from './PiezaItem';
 
-export default function BuscarPiezas(){
+export default function BuscarPiezas( { type } ){
 
   //Valor del input
     const [nombreBusqueda, setNombreBusqueda] = useState("");
@@ -58,11 +58,19 @@ export default function BuscarPiezas(){
         </button>
       </form>
       <div className="buscarPiezas-resultados">
-        {(
+        {type === 'encargado' ?
+         (
           resultados.map((pieza, index) => (
-            <PiezaItem key={index} pieza={pieza} /> // Mostrar cada resultado usando PiezaItem
+            <PiezaItem key={index} pieza={pieza} type= 'encargado' /> // Mostrar cada resultado usando PiezaItem
           ))
-        )}
+        )
+       :
+       (
+        resultados.map((pieza, index) => (
+          <PiezaItem key={index} pieza={pieza} type= 'mecanico' /> // Mostrar cada resultado usando PiezaItem
+        ))
+      )
+       }
       </div>
     </div>
     )

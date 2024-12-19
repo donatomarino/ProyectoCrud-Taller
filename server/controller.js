@@ -286,7 +286,7 @@ export const update = async (req, res) => {
             precio_compra: req.body.precio_compra,
             precio_venta: req.body.precio_venta,
         },
-        visible: true
+        visible: "true"
     };
     console.log(itemToUpdate);
 
@@ -306,7 +306,7 @@ export const update = async (req, res) => {
 // Borrar elemento de la lista
 export const deleteItem = async (req, res) => {
     try {
-        await actualizarDocumento("components", { id: parseInt(req.body.id) }, { visible: false });
+        await actualizarDocumento("components", { id: req.body.id }, { visible: "false" });
 
         return res.status(200).json({
             message: "Herramienta borrada exitosamente"

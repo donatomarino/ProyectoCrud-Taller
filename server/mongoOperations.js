@@ -35,6 +35,7 @@ async function crearColeccion(coleccion, documento) {
     if(!currentCollections.includes(coleccion)){
         await db.createCollection(coleccion);
         console.log(`Colección '${coleccion}' creada.`);
+        insertarDocumento(coleccion, documento)
         await client.close();
     } else{
         insertarDocumento(coleccion, documento)

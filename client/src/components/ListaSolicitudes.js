@@ -34,14 +34,15 @@ export default function ListaSolicitudes({solicitudes}){
         <div className="addSolicitude-container">
             <h3 className="addSolicitude-title">Solicitudes</h3>
             <ul className="addSolicitude-list">
-                {requests && requests.map((request, i) => (
+                {requests ? requests.map((request, i) => (
 
                 <li className="addSolicitude-item" key={i}>
                     <p className="addSolicitude-asunto"><span>Asunto:</span>{request.title}</p>
                     <p className="addSolicitude-descripcion"><span>Descripción:</span>{request.descripcion}</p>
                 </li>
 
-                ))}
+                ))
+            : <h5>No hay solicitudes pendientes</h5>}
 
             </ul>
         </div>

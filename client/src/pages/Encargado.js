@@ -47,7 +47,7 @@ const Encargado = ( { type })=>{
             <Header title='AREA DE ENCARGADO'/>
             <main className="App-main">
                 <div className="main-leftContainer">
-                    <BuscarPiezas/>
+                    <BuscarPiezas type= 'encargado'/>
                     <h3 className="listaPiezas-title">Listado de herramientas</h3>
                     <ul className="listaPiezas-container">
                       {piezas.map((pieza, i) => (
