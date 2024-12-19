@@ -1,18 +1,18 @@
 
 /* Estilo general de la página */
-body {
+.login-container {
     /* Fondo suave para contrastar con el formulario */
-    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: grey; */
+    background-color: rgb(235, 235, 235);
 }
 
 /* Contenedor principal del formulario */
-form {
+.login-form {
     width: 100%;
     max-width: 450px; /* Ancho máximo del formulario */
     padding: 40px;
@@ -112,6 +112,18 @@ input::placeholder {
 
 .login-links a:hover {
     text-decoration: underline;
+}
+
+.form-group-label{
+    display: flex;
+    font-size: 14px;
+    justify-content: space-evenly;
+}
+
+.login-label{
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 /* Animación para mostrar el formulario suavemente */

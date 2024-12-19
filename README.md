@@ -1,8 +1,7 @@
 # ProyectoCrud-Taller
-Tarde 19-12-2024 (2)
-"""
-Carlos / 19-12-2024 / trabajando en la documentación
-"""
+
+Colaboradores: Carlos, Donato, Alex, Jaime y Rafa
+
 # FRONT END DOCUMENTACIÓN: 
 ## `Login.js` 
 

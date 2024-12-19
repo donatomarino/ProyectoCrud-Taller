@@ -8,7 +8,7 @@ import router from './router.js';
 import swaggerUi from "swagger-ui-express";
 import { swaggerDocs } from "./swaggerOptions.js"
 
-const FRONTEND_URL = process.env.FRONTEND_URL || "http://127.0.0.1:3001";
+const FRONTEND_URL = process.env.FRONTEND_URL || "http://127.0.0.1:3000";
 const app = express()
 app.use(
     cors({

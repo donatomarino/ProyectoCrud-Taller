@@ -5,12 +5,17 @@ import React from "react"
 import taller_logo from '../assets/img/taller_logo.svg';
 
 
+const exitSession = ()=>{
+    window.location.href = "/";
+}
+
 export default function Header( {title} ){
     return(
         <header className="App-header">
             <div className="AppHeader-brand">
                 <h1 className="AppHeader-text">{title}</h1>
                 <img src={taller_logo} alt="Logo Taller" className="AppHeader-logo"/>
+                <button className='header-return' onClick={exitSession}>X</button>
             </div>
             
         </header>

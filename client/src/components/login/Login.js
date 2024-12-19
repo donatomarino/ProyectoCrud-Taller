@@ -38,20 +38,20 @@ export default function Login() {
     };
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
+        <div className='login-container'>
+            <form onSubmit={handleSubmit} className='login-form'>
                 <div className="form-group">
                     <Input tag="input" placeholder="ADMIN/USER" type="text" name="email" />
                 </div>
                 <div className="form-group">
                     <Input tag="input" placeholder="Password" type="password" name="password" />
                 </div>
-                <div className="form-group">
-                    <label>
+                <div className="form-group-label">
+                    <label className='login-label'>
                         Encargado
                         <Input tag="input" type="radio" name="rol" value="Encargado" />
                     </label>
-                    <label>
+                    <label className='login-label'>
                         Mecánico
                         <Input tag="input" type="radio" name="rol" value="Mecanico" />
                     </label>
