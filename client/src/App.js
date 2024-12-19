@@ -14,20 +14,17 @@ function App() {
         <Route path="/encargado" element={<Encargado type='encargado'/>} />
         <Route path="/" element={
           <div class="container">
-            <h2>LOGIN</h2>
             <Login />
           </div>
         } />
         <Route path="/register" element={
           <div class="container">
-            <h2>REGISTER</h2>
             <Register />
           </div>
         } />
 
 <       Route path="/mecanico" element={
           <div class="container">
-            <h2>REGISTER</h2>
             <Mecanico type='mecanico'/>
           </div>
         } />  

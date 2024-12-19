@@ -180,6 +180,38 @@ export const allRequests = async (req, res) => {
     }
 };
 
+// Mostrar todas las incidencias
+export const allIncidences = async (req, res) => {
+    try {
+        // Obtener todos los elementos desde la base de datos
+        const requests = await verTodos("incidencias");
+
+        console.log("--- Todos las incidencias obtenidos correctamente ---");
+
+        // Verificar si la coleccion "solicitudes" está vacío
+        if (!requests || requests.length === 0) {
+            console.warn("No hay datos que recuperar de la base de datos.");
+            return res.status(401).json({
+                message: "No hay datos que recuperar de la base de datos",
+            });
+        }
+
+        // Responder con estado 200 y los datos obtenidos
+        return res.status(200).json({
+            message: "Incidencias obtenidas exitosamente",
+            data: requests
+        });
+    } catch (error) {
+        console.error("Error al obtener las incidencias:", error);
+
+        // Manejo de errores generales
+        return res.status(500).json({
+            message: "Error al obtener las incidencias",
+            error: error.message
+        });
+    }
+};
+
 // Incidencias
 export const createIncidence = async (req, res) => {
     try {

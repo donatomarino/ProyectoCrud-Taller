@@ -49,9 +49,9 @@
   display: grid;
   grid-template-areas: 
   "left rightUp"
-  "left rightUp"
+  "left rightMiddle"
   "left rightDown";
-  grid-template-rows: 2fr 1fr 2fr;
+  grid-template-rows: auto auto auto;
   grid-template-columns: 3fr 1fr;
   gap: 20px;
   width: 90%;
@@ -98,6 +98,19 @@
   align-items: start;
   padding: 20px;
   background-color: #dfdfdf90;
+  max-height: 600px;
+  overflow: auto;
+}
+
+.main-rightContainer-middle{
+  grid-area: rightMiddle;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  padding: 20px;
+  background-color: #dfdfdf90;
+  max-height: 600px;
+  overflow: auto;
 }
 
 .main-rightContainer-down{

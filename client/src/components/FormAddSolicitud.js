@@ -27,6 +27,7 @@ const FormAddSolicitud = ()=>{
                 const data = await response.json();
                 console.log("Pieza añadida con éxito:", data);
 
+                window.location.href = "/mecanico";
               // Redirigir a la ruta principal
             //   window.location.href = "/mecanico";
             } else {

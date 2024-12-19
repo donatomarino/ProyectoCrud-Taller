@@ -7,6 +7,7 @@ import BuscarPiezas from "../components/BuscarPiezas"
 import PiezaItem from "../components/PiezaItem"
 import ListaSolicitudes from "../components/ListaSolicitudes"
 import FormularioAgregarPieza from "../components/FormularioAgregarPieza"
+import ListaIncidencias from "../components/ListaIncidencias";
 
 const Encargado = ( { type })=>{
     const [piezas, setPiezas] = useState([]);
@@ -68,6 +69,10 @@ const Encargado = ( { type })=>{
                 </div>
                 <div className="main-rightContainer-up">
                     <ListaSolicitudes solicitudes={solicitudes} />
+                    
+                </div>
+                <div className="main-rightContainer-middle">
+                    <ListaIncidencias/>
                 </div>
                 <div className="main-rightContainer-down">
                     <FormularioAgregarPieza piezas={piezas.length}/>

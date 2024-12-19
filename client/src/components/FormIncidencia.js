@@ -28,7 +28,7 @@ const FormIncidencia = ()=>{
                 console.log("Pieza añadida con éxito:", data);
 
               // Redirigir a la ruta principal
-            //   window.location.href = "/mecanico";
+            window.location.href = "/mecanico";
             } else {
                 console.error("Error al añadir la pieza:", response.statusText);
             }
