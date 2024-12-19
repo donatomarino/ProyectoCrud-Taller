@@ -29,19 +29,20 @@ export const login = async (req, res) => {
         // en credentials guarda el resultado de la función signIn
         const credentials = await signIn(email, password);
 
-        console.log('CONECTADO CORRECTAMENTE');
+        console.log(`USUARIO ${credentials.user.email} CONECTADO CORRECTAMENTE`);
 
         // Responder con un status 200 y un mensaje de éxito
         if (rol === 'Encargado') {
-            res.redirect("http://localhost:3000/encargado")
+            return res.status(200).json({
+                message: 'Inicio de sesión como encargado exitoso',
+                redirectUrl: 'http://127.0.0.1:3000/encargado',
+            });
         } else if (rol === 'Mecanico') {
-            res.redirect("http://localhost:3000/mecanico")
+            return res.status(200).json({
+                message: 'Inicio de sesión como mecánico exitoso',
+                redirectUrl: 'http://127.0.0.1:3000/mecanico',
+            });
         }
-
-        // return res.status(200).json({
-        //     message: 'Inicio de sesión exitoso',
-        //     user: credentials.user.email
-        // });
 
     } catch (error) {
         console.error('Error durante el inicio de sesión:', error);

@@ -25,7 +25,6 @@ async function signIn(email, password) {
   try {
     const credentials = await signInWithEmailAndPassword(auth, email, password);
     // setLoggedIn(true);
-    console.log('CONECTADO CORRECTAMENTE');
     return credentials;
   } catch (error) {
     console.error("Error en la autenticación:", error);
