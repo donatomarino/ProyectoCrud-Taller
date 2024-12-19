@@ -126,7 +126,7 @@ export const createTool = async (req, res) => {
                 precio_compra: parseInt(req.body.precio_compra),
                 precio_venta: parseInt(req.body.precio_venta),
             },
-            visible: true,
+            visible: "true",
         };
 
         // Insertar el documento en la base de datos
