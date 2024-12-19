@@ -1,4 +1,5 @@
 // Rafa / 18-12-2024 / Adaptando algunos contenedores para dar estilo / 1.0.0
+// Rafa / 19-12-2024 / Limpiando código y comentando / 1.0.0
 
 import React, {useState} from "react";
 import Header from "../components/Header"
@@ -10,15 +11,11 @@ import FormularioAgregarPieza from "../components/FormularioAgregarPieza"
 import ListaIncidencias from "../components/ListaIncidencias";
 
 const Encargado = ( { type })=>{
+
+    //Estado que almacena el listado de piezas
     const [piezas, setPiezas] = useState([]);
-    const [solicitudes] = useState(["Incidencia de prueba"]);
-    const [busqueda, setBusqueda] = useState("");
 
-
-    // const getPiezasNum = ()=>{
-    //   console.log(piezas);
-    // }
-
+    //Al cargar el componente -> solicitud de lista 
     useState(()=>{
     /* Manejar el envío del formulario */
     const handleSubmit = async (e) => {
@@ -50,7 +47,7 @@ const Encargado = ( { type })=>{
             <Header title='AREA DE ENCARGADO'/>
             <main className="App-main">
                 <div className="main-leftContainer">
-                    <BuscarPiezas onBuscar={setBusqueda} />
+                    <BuscarPiezas/>
                     <h3 className="listaPiezas-title">Listado de herramientas</h3>
                     <ul className="listaPiezas-container">
                       {piezas.map((pieza, i) => (
@@ -60,15 +57,13 @@ const Encargado = ( { type })=>{
                           pieza={pieza}
                           id={pieza.id}
                           type= 'encargado'
-                          // onActualizar={actualizarPieza}
-                          // onBorrar={borrarPieza}
                         />
                       ))}
                     </ul>
                     
                 </div>
                 <div className="main-rightContainer-up">
-                    <ListaSolicitudes solicitudes={solicitudes} />
+                    <ListaSolicitudes/>
                     
                 </div>
                 <div className="main-rightContainer-middle">

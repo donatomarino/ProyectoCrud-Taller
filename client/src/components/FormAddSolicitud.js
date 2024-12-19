@@ -2,9 +2,11 @@
 
 const FormAddSolicitud = ()=>{
 
+    //Enviar una incidencia
     const sendIncidencia = async (e)=>{
+
         e.preventDefault();
-        
+    
         const newSolicitud = {
             title: e.target[0].value,
             descripcion: e.target[1].value,
@@ -12,6 +14,7 @@ const FormAddSolicitud = ()=>{
         };
         console.log(newSolicitud);
 
+        //Realizamos la solicitud POST
         try {
             // Enviar los datos al servidor
             const response = await fetch("http://127.0.0.1:3001/solicitudes", {
@@ -27,9 +30,9 @@ const FormAddSolicitud = ()=>{
                 const data = await response.json();
                 console.log("Pieza añadida con éxito:", data);
 
+                //Recargamos la página para que se actualicen los cambios
                 window.location.href = "/mecanico";
-              // Redirigir a la ruta principal
-            //   window.location.href = "/mecanico";
+
             } else {
                 console.error("Error al añadir la pieza:", response.statusText);
             }
@@ -39,24 +42,28 @@ const FormAddSolicitud = ()=>{
     }
 
     return (
+        
         <form onSubmit={(e)=>sendIncidencia(e)} className="addSolicitud-form">
 
-                        <h3 className="addPieza-title">Nueva Soliciutd</h3>
+            <h3 className="addPieza-title">Nueva Soliciutd</h3>
 
-                        <input
-                        name="titulo"
-                        placeholder="Título"
-                        className="addPieza-textInput"
-                        />
+            <input
+            name="titulo"
+            placeholder="Título"
+            className="addPieza-textInput"
+            />
 
-                        <textarea
-                        name="descripcion"
-                        placeholder="Escribe aquí la descripción de tu incidencia"
-                        className="addPieza-textArea"
-                        />
+            <textarea
+            name="descripcion"
+            placeholder="Escribe aquí la descripción de tu incidencia"
+            className="addPieza-textArea"
+            />
 
-                        <button type="submit" className="addPieza-submitBtn">AÑADIR</button>
-                    </form>
+            <button type="submit" className="addPieza-submitBtn">
+                AÑADIR
+            </button>
+
+        </form>
     )
 }
 

@@ -2,6 +2,7 @@
 
 const FormIncidencia = ()=>{
 
+    //Enviar un nueva incidencia
     const sendIncidencia = async (e)=>{
         e.preventDefault();
         
@@ -10,7 +11,6 @@ const FormIncidencia = ()=>{
             descripcion: e.target[1].value,
             resuelta: "false"
         };
-        console.log(newIncidence);
 
         try {
             // Enviar los datos al servidor
@@ -27,8 +27,9 @@ const FormIncidencia = ()=>{
                 const data = await response.json();
                 console.log("Pieza añadida con éxito:", data);
 
-              // Redirigir a la ruta principal
-            window.location.href = "/mecanico";
+              // Recargar la página para que se apliquen los cambios
+                window.location.href = "/mecanico";
+
             } else {
                 console.error("Error al añadir la pieza:", response.statusText);
             }
@@ -40,22 +41,24 @@ const FormIncidencia = ()=>{
     return (
         <form onSubmit={(e)=>sendIncidencia(e)} className="addSolicitud-form">
 
-                        <h3 className="addPieza-title">Nueva Incidencia</h3>
+            <h3 className="addPieza-title">Nueva Incidencia</h3>
 
-                        <input
-                        name="titulo"
-                        placeholder="Título"
-                        className="addPieza-textInput"
-                        />
+            <input
+            name="titulo"
+            placeholder="Título"
+            className="addPieza-textInput"
+            />
 
-                        <textarea
-                        name="descripcion"
-                        placeholder="Escribe aquí la descripción de tu incidencia"
-                        className="addPieza-textArea"
-                        />
+            <textarea
+            name="descripcion"
+            placeholder="Escribe aquí la descripción de tu incidencia"
+            className="addPieza-textArea"
+            />
 
-                        <button type="submit" className="addPieza-submitBtn">AÑADIR</button>
-                    </form>
+            <button type="submit" className="addPieza-submitBtn">
+                AÑADIR
+            </button>
+        </form>
     )
 }
 

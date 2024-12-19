@@ -9,10 +9,9 @@ import '../styles/FormularioAgregarPieza.css';
 export default function FormularioAgregarPieza({piezas}){
 
 
-  /* Manejar el envío del formulario */
+  //Enviar una nueva pieza
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log((e.target[0]).value)
 
     const itemToUpdate = {
       id: parseInt(e.target[0].value),
@@ -37,8 +36,9 @@ export default function FormularioAgregarPieza({piezas}){
         const data = await response.json();
         console.log("Pieza añadida con éxito:", data);
 
-        // Redirigir a la ruta principal
+        // Recargar la página para que se apliquen los cambios
         window.location.href = "/encargado";
+
       } else {
         console.error("Error al añadir la pieza:", response.statusText);
       }
@@ -50,26 +50,25 @@ export default function FormularioAgregarPieza({piezas}){
     return(
         <form onSubmit={(e)=>handleSubmit(e)} className="addPieza-form">
             <h3 className="addPieza-title">Añadir Nueva Pieza</h3>
+
             <input
               type="number"
               name="id"
               placeholder="ID"
               value={piezas}
               readOnly
-              // value={nuevaPieza.id}
               className="addPieza-textInput"
             />
+
             <input
               name="marca"
               placeholder="Marca"
-              // value={nuevaPieza.nombre}
               className="addPieza-textInput"
             />
 
             <input
               name="tipo"
               placeholder="Tipo"
-              // value={nuevaPieza.tipo}
               className="addPieza-textInput"
             />
             
@@ -77,17 +76,19 @@ export default function FormularioAgregarPieza({piezas}){
               type="number"
               name="precio_compra"
               placeholder="Precio Compra"
-              // value={nuevaPieza.precio_compra}
               className="addPieza-textInput"
             />
+
             <input
               type="number"
               name="precio_venta"
               placeholder="Precio Venta"
-              // value={nuevaPieza.precio_venta}
               className="addPieza-textInput"
             />
-            <button type="submit" className="addPieza-submitBtn">AÑADIR</button>
+
+            <button type="submit" className="addPieza-submitBtn">
+              AÑADIR
+            </button>
         </form>
   );
 }
