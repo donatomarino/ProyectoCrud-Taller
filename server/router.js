@@ -177,6 +177,30 @@ router.post("/incidencias", createIncidence);
 
 /**
  * @swagger
+ * /incidencias:
+ *   post:
+ *     summary: Crea una nueva incidencia.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               title:
+ *                 type: string
+ *               descripcion:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Incidencia creada exitosamente.
+ *       500:
+ *         description: Error al crear la incidencia.
+ */
+router.post("/solicitudes", createRequest);
+
+/**
+ * @swagger
  * /delete-item:
  *   patch:
  *     summary: Marca un elemento como no visible.

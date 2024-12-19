@@ -15,13 +15,15 @@ export default function PiezaItem( { pieza, type, piezas, id } ){
         e.preventDefault();
 
         const itemToUpdate = {
-          id: parseInt(e.target[0].value),
+          id: e.target[0].value,
           marca: e.target[1].value,
           tipo: e.target[2].value,
           precio_compra: e.target[3].value,
           precio_venta: e.target[4].value,
           
       };
+
+      console.log(typeof e.target[0].value);
 
         try {
           // Enviar los datos al servidor
@@ -101,9 +103,9 @@ export default function PiezaItem( { pieza, type, piezas, id } ){
 
                     <input type='text' name='tipo' id='tipo' className='editItem-textInput' placeholder='Tipo'/>
                             
-                    <input type='text' name='precio_compra' id='precio_compra' className='editItem-textInput' placeholder='Precio compra'/>
+                    <input type='number' name='precio_compra' id='precio_compra' className='editItem-textInput' placeholder='Precio compra'/>
 
-                    <input type='text' name='precio_compra' id='precio_venta' className='editItem-textInput' placeholder='Precio venta'/>
+                    <input type='number' name='precio_compra' id='precio_venta' className='editItem-textInput' placeholder='Precio venta'/>
 
                   </div>
 

@@ -14,7 +14,7 @@ export default function FormularioAgregarPieza({piezas}){
     e.preventDefault();
 
     const itemToUpdate = {
-      id: parseInt(e.target[0].value),
+      id: e.target[0].value,
       marca: e.target[1].value,
       tipo: e.target[2].value,
       precio_compra: e.target[3].value,

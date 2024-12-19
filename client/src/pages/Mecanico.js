@@ -47,6 +47,7 @@ const Mecanico = ()=>{
                     <h3 className="listaPiezas-title">Listado de herramientas</h3>
                     <ul className="listaPiezas-container">
                       {piezas.map((pieza, i) => (
+                        pieza.visible === "true" &&
                         <PiezaItem
                           key={i}
                           pieza={pieza}
