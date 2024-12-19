@@ -15,7 +15,7 @@ export default function Header( {title} ){
             <div className="AppHeader-brand">
                 <h1 className="AppHeader-text">{title}</h1>
                 <img src={taller_logo} alt="Logo Taller" className="AppHeader-logo"/>
-                <button onClick={exitSession}>X</button>
+                <button className='header-return' onClick={exitSession}>X</button>
             </div>
             
         </header>

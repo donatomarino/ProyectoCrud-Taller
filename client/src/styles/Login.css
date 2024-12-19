@@ -114,6 +114,18 @@ input::placeholder {
     text-decoration: underline;
 }
 
+.form-group-label{
+    display: flex;
+    font-size: 14px;
+    justify-content: space-evenly;
+}
+
+.login-label{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
 /* Animación para mostrar el formulario suavemente */
 form {
     animation: fadeIn 0.5s ease-in-out;
