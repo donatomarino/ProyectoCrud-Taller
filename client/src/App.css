@@ -97,6 +97,8 @@
   margin-bottom: 50px;
 }
 
+
+
 .main-rightContainer-up{
   grid-area: rightUp;
   display: flex;
@@ -106,6 +108,7 @@
   background-color: #dfdfdf90;
   max-height: 600px;
   overflow: auto;
+  margin-bottom: 20px;
 }
 
 .main-rightContainer-middle{

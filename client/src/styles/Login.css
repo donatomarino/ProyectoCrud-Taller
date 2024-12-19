@@ -39,7 +39,7 @@ h2 {
 }
 
 /* Estilo de los inputs (text, password, radio) */
-input[type="text"],
+/* input[type="text"],
 input[type="password"],
 input[type="submit"],
 input[type="radio"] {
@@ -52,16 +52,26 @@ input[type="radio"] {
     background-color: #2e2626;
     color: #333;
     transition: border-color 0.3s ease, background-color 0.3s ease;
+} */
+
+.input-login{
+    width: 100%;
+    padding: 15px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #2e2626;
+    color: #333;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
 /* Estilo de los campos de texto (input[type="text"] y input[type="password"]) */
-input[type="text"],
-input[type="password"] {
+.input-login {
     background-color: #f9f9f9; /* Fondo suave */
 }
 
-input[type="text"]:focus,
-input[type="password"]:focus {
+.input-login:focus{
     border-color: #4CAF50; /* Cambio de borde al enfocar */
     background-color: #ffffff; /* Fondo blanco al enfocar */
     outline: none;

@@ -123,7 +123,7 @@ export const allItems = async (req, res) => {
 export const createTool = async (req, res) => {
     try {
         const newTool = {
-            id: parseInt(req.body.id),
+            id: req.body.id,
             tipo: req.body.tipo,
             marca: req.body.marca,
             precio: {
