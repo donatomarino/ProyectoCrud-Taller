@@ -21,6 +21,7 @@ export default function FormularioAgregarPieza({piezas}){
       precio_venta: e.target[4].value,
       
   };
+  console.log(typeof(e.target[0].value))
     try {
       // Enviar los datos al servidor
       const response = await fetch("http://127.0.0.1:3001/create-tool", {

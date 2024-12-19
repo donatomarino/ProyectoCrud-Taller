@@ -61,7 +61,7 @@ export default function BuscarPiezas( { type } ){
         {type === 'encargado' ?
          (
           resultados.map((pieza, index) => (
-            <PiezaItem key={index} pieza={pieza} type= 'encargado' /> // Mostrar cada resultado usando PiezaItem
+            <PiezaItem key={index} pieza={pieza} id={pieza.id} type= 'encargado' /> // Mostrar cada resultado usando PiezaItem
           ))
         )
        :

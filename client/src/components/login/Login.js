@@ -1,4 +1,4 @@
-// import '../../styles/Login.css';
+import '../../styles/Login.css';
 import { useState } from "react";
 import Input from "../Input";
 
@@ -41,10 +41,10 @@ export default function Login() {
         <div className='login-container'>
             <form onSubmit={handleSubmit} className='login-form'>
                 <div className="form-group">
-                    <Input tag="input" placeholder="ADMIN/USER" type="text" name="email" />
+                    <input tag="input" className='input-login' placeholder="ADMIN/USER" type="text" name="email" />
                 </div>
                 <div className="form-group">
-                    <Input tag="input" placeholder="Password" type="password" name="password" />
+                    <input tag="input" className='input-login' placeholder="Password" type="password" name="password" />
                 </div>
                 <div className="form-group-label">
                     <label className='login-label'>
