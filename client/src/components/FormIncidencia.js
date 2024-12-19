@@ -25,13 +25,13 @@ const FormIncidencia = ()=>{
             // Manejar la respuesta del servidor
             if (response.ok) {
                 const data = await response.json();
-                console.log("Pieza añadida con éxito:", data);
+                console.log("Incidencia añadida con éxito:", data);
 
               // Recargar la página para que se apliquen los cambios
                 window.location.href = "/mecanico";
 
             } else {
-                console.error("Error al añadir la pieza:", response.statusText);
+                console.error("Error al añadir la incidencia:", response.statusText);
             }
         } catch (error) {
             console.error("Error al enviar los datos:", error);
