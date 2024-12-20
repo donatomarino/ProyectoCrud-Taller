@@ -1,4 +1,5 @@
 // Carlos / 19-12-2024 / swagger / 1.0.0
+// Jaime / 19-12-2024 / swagger / 1.0.0
 
 import swaggerJsDoc from "swagger-jsdoc";
 import swaggerUi from "swagger-ui-express";
