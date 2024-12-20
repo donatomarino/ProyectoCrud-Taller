@@ -69,6 +69,12 @@ Colaboradores: Carlos, Donato, Alex, Jaime y Rafa
 ## `ListaIncidencias.js`
 
 Este componente muestra una lista de incidencias obtenidas desde un servidor. Al renderizarse, realiza una petición GET para cargar las incidencias y las almacena en un estado interno. Luego, las despliega en un formato de lista estilizado.
+- Hay un botton "Resuelto" que cuando le pinchas, la incidencia se quita de la lista y se almacena en otra colleción llamada 'request-solved'.
+
+## `ListaSolicitudes.js`
+
+Este componente muestra una lista de solicitudes de nuevas piezas obtenidas desde un servidor. Al renderizarse, realiza una petición GET para cargar las solicitudes y las almacena en un estado interno. Luego, las despliega en un formato de lista estilizado.
+- Hay un botton "Listo" que cuando le pinchas, la incidencia se quita de la lista y se almacena en otra colleción llamada 'request-solved'.
 
 ### Características:
 - Realiza una solicitud a un servidor para obtener todas las incidencias.
@@ -178,19 +184,22 @@ Este archivo implementa varias funciones para manejar operaciones en el servidor
    - **`createTool`**: Crea una nueva herramienta en la colección `components`. Los precios de compra y venta se manejan como objetos anidados.
    - **`update`**: Actualiza los datos de una herramienta existente en la colección.
    - **`deleteItem`**: Marca una herramienta como no visible (`visible: "false"`) en lugar de eliminarla físicamente.
+   - **`search`**: Busca herramientas en la colección `components` según el nombre del tipo.
 
 ---
 
 ### 4. **Gestión de solicitudes**
    - **`createRequest`**: Crea una nueva solicitud en la colección `solicitudes`.
    - **`allRequests`**: Obtiene todas las solicitudes existentes.
-   - **`search`**: Busca herramientas en la colección `components` según el nombre del tipo.
+   - **`requestSolved`**: Almacena las solicitudes que hayan sido aporbadas en otra colección y las quita de la actual.
 
 ---
 
 ### 5. **Gestión de incidencias**
    - **`allIncidences`**: Recupera todas las incidencias registradas.
    - **`createIncidence`**: Inserta una nueva incidencia en la colección `incidencias`.
+   - **`requestSolved`**: Almacena las incidencias que hayan sido solucionadas en otra colección y las quita de la actual.
+
 
 ---
 
@@ -274,3 +283,10 @@ Este archivo implementa las operaciones CRUD básicas para interactuar con una b
      - `actualizacion`: Objeto JSON que contiene los valores a modificar.
    - **Resultado**: Devuelve el resultado de la operación, incluyendo el número de documentos modificados.
    - **Uso**: Modificar atributos específicos de documentos existentes.
+
+### 7. **`actualizarDocumento(coleccion, filtro)`**
+   - **Descripción**:  * Borra un documento dentro de la colección.
+   - **Parámetros**:
+     - `coleccion`: Nombre de la colección donde buscar.
+     - `filtro`: Criterio de búsqueda del documento que se quiere borrar.
+   - **Uso**: Borrar documentos específicos de colecciones existentes.
