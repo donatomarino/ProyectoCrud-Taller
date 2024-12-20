@@ -38,22 +38,6 @@ h2 {
     flex-direction: column;
 }
 
-/* Estilo de los inputs (text, password, radio) */
-/* input[type="text"],
-input[type="password"],
-input[type="submit"],
-input[type="radio"] {
-    width: 100%;
-    padding: 15px;
-    margin: 8px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    background-color: #2e2626;
-    color: #333;
-    transition: border-color 0.3s ease, background-color 0.3s ease;
-} */
-
 .input-login{
     width: 100%;
     padding: 15px;
@@ -77,23 +61,21 @@ input[type="radio"] {
     outline: none;
 }
 
-/* Estilo de los botones */
-input[type="submit"] {
-    background-color: #4CAF50;
+.login-submit{
+    border-radius: 5px;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 12px 20px;
+    width: 100%;
+    border: 1px solid black;
+    background-color: #29324ec8;
     color: white;
-    font-weight: bold;
-    cursor: pointer;
-    border: none;
-    transition: background-color 0.3s ease;
-    padding: 15px;
+    transition: background .2s ease-in-out;
 }
 
-input[type="submit"]:hover {
-    background-color: #45a049;
-}
-
-input[type="submit"]:active {
-    background-color: #3e8e41;
+.login-submit:hover{
+    background-color: #29324e;
 }
 
 /* Estilo de los botones radio */
@@ -131,24 +113,14 @@ input::placeholder {
 }
 
 .login-label{
+    font-size: 18px;
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
 /* Animación para mostrar el formulario suavemente */
-form {
+.login-form {
     animation: fadeIn 0.5s ease-in-out;
 }
 
-/* Animación para el fade-in */
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}

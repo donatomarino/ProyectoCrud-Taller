@@ -56,22 +56,32 @@ export default function BuscarPiezas( { type } ){
         <button type="submit" className="buscarPiezas-btn">
           BUSCAR
         </button>
+        
+        <button type='button' className="buscarPiezas-btn buscarPiezas-btn--clear" onClick={()=>setResultados([])}>
+          LIMPIAR
+        </button>
+        
       </form>
-      <div className="buscarPiezas-resultados">
+      
+
+      
         {type === 'encargado' ?
          (
           resultados.map((pieza, index) => (
-            <PiezaItem key={index} pieza={pieza} id={pieza.id} type= 'encargado' /> // Mostrar cada resultado usando PiezaItem
+            <div className="buscarPiezas-resultados">
+            <PiezaItem key={index} pieza={pieza} id={pieza.id} type= 'encargado' />
+            </div> // Mostrar cada resultado usando PiezaItem
           ))
         )
        :
        (
         resultados.map((pieza, index) => (
-          <PiezaItem key={index} pieza={pieza} type= 'mecanico' /> // Mostrar cada resultado usando PiezaItem
+          <div className="buscarPiezas-resultados">
+          <PiezaItem key={index} pieza={pieza} type= 'mecanico' /> 
+          </div>// Mostrar cada resultado usando PiezaItem
         ))
       )
        }
-      </div>
     </div>
     )
 }

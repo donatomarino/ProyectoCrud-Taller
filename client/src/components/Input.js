@@ -28,7 +28,7 @@ const Input = ({ tag, placeholder, type, name, value, onChange }) => {
             )
         case "button":
             return (
-                <button type={type} className="addPieza-submitBtn" >{placeholder}</button>
+                <button type={type} className="addPieza-submitBtn login-submit" >{placeholder}</button>
             )
         default:
             return (

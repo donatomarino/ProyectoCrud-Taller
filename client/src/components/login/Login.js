@@ -41,10 +41,10 @@ export default function Login() {
         <div className='login-container'>
             <form onSubmit={handleSubmit} className='login-form'>
                 <div className="form-group">
-                    <input tag="input" className='input-login' placeholder="ADMIN/USER" type="text" name="email" />
+                    <input tag="input" className='input-login' placeholder="MECÁNICO / ENCARGADO" type="text" name="email" />
                 </div>
                 <div className="form-group">
-                    <input tag="input" className='input-login' placeholder="Password" type="password" name="password" />
+                    <input tag="input" className='input-login' placeholder="CONSTRASEÑA" type="password" name="password" />
                 </div>
                 <div className="form-group-label">
                     <label className='login-label'>
@@ -56,7 +56,7 @@ export default function Login() {
                         <Input tag="input" type="radio" name="rol" value="Mecanico" />
                     </label>
                 </div>
-                <Input tag="button" type="submit" placeholder="Login" />
+                <input tag="button" type="submit" placeholder="Login" value='ENVIAR' className="login-submit"/>
             </form>
             {error && <p style={{ color: "red" }}>{error}</p>}
         </div>
