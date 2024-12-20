@@ -123,7 +123,7 @@ export const allItems = async (req, res) => {
 export const createTool = async (req, res) => {
     try {
         const newTool = {
-            id: req.body.id,
+            id: parseInt(req.body.id),
             tipo: req.body.tipo,
             marca: req.body.marca,
             precio: {
@@ -172,6 +172,31 @@ export const createRequest = async (req, res) => {
     } catch (error) {
         console.error("Error al crear la solicitud:", error);
         res.status(500).json({ message: "Error al crear la solicitud", error });
+    }
+};
+
+/**
+ * Crea nueva incidencia
+ * @param {*} req 
+ * @param {*} res 
+ * @returns res.status -> respuesta del servidor en JSON
+ */
+export const createIncidence = async (req, res) => {
+    try {
+        // los datos de la incidencia se almacenan en esta constante
+        const newIncidence = {
+            title: req.body.title,
+            descripcion: req.body.descripcion
+        };
+
+        // Insertar el documento en la base de datos
+        await crearColeccion("incidencias", newIncidence);
+
+        // Responder con status 200 y un mensaje
+        res.status(200).json({ message: "Incidencia insertada exitosamente" });
+    } catch (error) {
+        console.error("Error al crear la incidencia:", error);
+        res.status(500).json({ message: "Error al crear la incidencia", error });
     }
 };
 
@@ -250,31 +275,11 @@ export const allIncidences = async (req, res) => {
 };
 
 /**
- * Crea nueva incidencia
+ * Busca herramienta dentro del inventario
  * @param {*} req 
  * @param {*} res 
  * @returns res.status -> respuesta del servidor en JSON
  */
-export const createIncidence = async (req, res) => {
-    try {
-        // los datos de la incidencia se almacenan en esta constante
-        const newIncidence = {
-            title: req.body.title,
-            descripcion: req.body.descripcion
-        };
-
-        // Insertar el documento en la base de datos
-        await crearColeccion("incidencias", newIncidence);
-
-        // Responder con status 200 y un mensaje
-        res.status(200).json({ message: "Incidencia insertada exitosamente" });
-    } catch (error) {
-        console.error("Error al crear la incidencia:", error);
-        res.status(500).json({ message: "Error al crear la incidencia", error });
-    }
-};
-
-//Buscar una herramienta por tipo
 export const search = async (req, res) => {
     // Obtenemos el valor de búsqueda desde el cuerpo de la solicitud
     const { nombreBusqueda } = req.body;
@@ -286,8 +291,12 @@ export const search = async (req, res) => {
     res.status(200).json(resultados);
 };
 
-// Actualizar una herramienta en la BD
-export const update = async (req, res) => {
+/**
+ * Actualiza herramienta dentro del inventario
+ * @param {*} req 
+ * @param {*} res 
+ * @returns res.status -> respuesta del servidor en JSON
+ */export const update = async (req, res) => {
 
     const itemToUpdate = {
         id: req.body.id,
@@ -314,7 +323,12 @@ export const update = async (req, res) => {
     }
 }
 
-// Borrar elemento de la lista
+/**
+ * Oculta elemento de la lista inventario
+ * @param {*} req 
+ * @param {*} res 
+ * @returns res.status -> respuesta del servidor en JSON
+ */
 export const deleteItem = async (req, res) => {
     try {
         await actualizarDocumento("components", { id: req.body.id }, { visible: "false" });
@@ -327,7 +341,12 @@ export const deleteItem = async (req, res) => {
     }
 }
 
-// Creación de otra coleccion que almacena las solicitudes revisadas
+/**
+ * Crea otra colección donde almacena las solicitudes/incidencias revisadas/solucionadas y las elimina de la colección actual
+ * @param {*} req 
+ * @param {*} res 
+ * @returns res.status -> respuesta del servidor en JSON
+ */
 export const requestSolved = async (req, res) => {
     const {datos} = req.body;
     console.log(datos.coleccion);

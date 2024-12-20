@@ -110,7 +110,11 @@ async function actualizarDocumento(coleccion, filtro, actualizacion) {
     return resultado;
 }
 
-//Borrar  
+/**
+ * Borrar un documento dentro de la colección
+ * @param {string} coleccion -> Colección donde se busca el documento
+ * @param {string} filtro -> Texto del documento buscado
+ */
 async function borrarDocumento(coleccion, filtro) {
     const client = await connectToMongo();
     const db = client.db(mydb);
