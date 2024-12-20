@@ -27,12 +27,12 @@
     gap: 20px;
 }
 
-/* Título del formulario */
-h2 {
-    text-align: center;
+/* Titulo del formulario */
+.login-form_title{
     font-size: 24px;
-    color: #333; /* Color oscuro para contraste */
+    color: #333;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 /* Estilo de los grupos de entrada */

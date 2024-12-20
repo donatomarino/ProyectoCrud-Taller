@@ -40,6 +40,7 @@ export default function Login() {
     return (
         <div className='login-container'>
             <form onSubmit={handleSubmit} className='login-form'>
+                <h1 className='login-form_title'>LOGIN</h1>
                 <div className="form-group">
                     <input tag="input" className='input-login' placeholder="MECÁNICO / ENCARGADO" type="text" name="email" />
                 </div>
