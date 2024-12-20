@@ -123,12 +123,12 @@ export const allItems = async (req, res) => {
 export const createTool = async (req, res) => {
     try {
         const newTool = {
-            id: parseInt(req.body.id),
+            id: req.body.id,
             tipo: req.body.tipo,
             marca: req.body.marca,
             precio: {
-                precio_compra: parseInt(req.body.precio_compra),
-                precio_venta: parseInt(req.body.precio_venta),
+                precio_compra: req.body.precio_compra,
+                precio_venta: req.body.precio_venta,
             },
             visible: "true",
         };
