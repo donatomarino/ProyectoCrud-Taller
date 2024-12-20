@@ -44,12 +44,12 @@ const FormAddSolicitud = ()=>{
         
         <form onSubmit={(e)=>sendIncidencia(e)} className="addSolicitud-form">
 
-            <h3 className="addPieza-title">Solicitud nueva pieza</h3>
+            <h3 className="addPieza-title addPieza-title--add">Solicitud nueva pieza</h3>
 
             <input
             name="titulo"
             placeholder="Título"
-            className="addPieza-textInput"
+            className="addPieza-textInput addPieza-textInput--add"
             />
 
             <textarea

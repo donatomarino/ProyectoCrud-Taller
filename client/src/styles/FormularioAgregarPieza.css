@@ -12,6 +12,10 @@
     margin-bottom: 20px;
 }
 
+.addPieza-title--add{
+    text-align: center;
+}
+
 .addPieza-textInput{
     font-size: 14px;
     padding: 3px 15px;
@@ -19,6 +23,10 @@
     border: 1px solid #29324e;
     border-radius: 5px;
     color: #29324e;
+}
+
+.addPieza-textInput--add{
+    width: 100%;
 }
 
 .addPieza-textArea{
