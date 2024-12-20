@@ -1,3 +1,5 @@
+/* Alex / 17-12-2024 / Estilos / 1.0.0 */
+/* Rafa / 20-12-2024 / Estilos mensaje de error / 1.0.0 */
 
 /* Estilo general de la página */
 .login-container {
@@ -9,6 +11,7 @@
     height: 100vh;
     margin: 0;
     background-color: rgb(235, 235, 235);
+    position: relative;
 }
 
 /* Contenedor principal del formulario */
@@ -90,6 +93,29 @@ input::placeholder {
     font-style: italic;
 }
 
+.login-errorPosition{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -60px;
+    left: 0;
+    animation: fadeIn .3s ease-in-out both;
+}
+
+.login-errorContainer{
+    background-color: red;
+    border-radius: 10px;
+    
+}
+
+.login-error{
+color: white;
+margin: 10px;
+font-size: 14px;
+}
+
 /* Mensajes o enlaces adicionales */
 .login-links {
     text-align: center;
@@ -122,5 +148,6 @@ input::placeholder {
 /* Animación para mostrar el formulario suavemente */
 .login-form {
     animation: fadeIn 0.5s ease-in-out;
+    position: relative;
 }
 
