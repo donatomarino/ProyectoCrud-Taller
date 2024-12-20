@@ -284,8 +284,8 @@ Este archivo implementa las operaciones CRUD básicas para interactuar con una b
    - **Resultado**: Devuelve el resultado de la operación, incluyendo el número de documentos modificados.
    - **Uso**: Modificar atributos específicos de documentos existentes.
 
-### 7. **`actualizarDocumento(coleccion, filtro)`**
-   - **Descripción**:  * Borra un documento dentro de la colección.
+### 7. **`borrarDocumento(coleccion, filtro)`**
+   - **Descripción**:  Borra un documento dentro de la colección.
    - **Parámetros**:
      - `coleccion`: Nombre de la colección donde buscar.
      - `filtro`: Criterio de búsqueda del documento que se quiere borrar.
