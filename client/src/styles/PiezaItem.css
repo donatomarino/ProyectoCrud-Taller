@@ -4,6 +4,7 @@
     list-style: none;
     display: flex;
     flex-direction: column;
+    margin-bottom: 10px;
 }
 
 .pieza-header{
@@ -60,10 +61,6 @@
 
 .pieza-deleteBtn:hover{
     background-color: #ff651e9d;
-}
-
-.editItem-form{
-    
 }
 
 .editItem-formContainer{

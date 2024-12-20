@@ -41,12 +41,12 @@ const FormIncidencia = ()=>{
     return (
         <form onSubmit={(e)=>sendIncidencia(e)} className="addSolicitud-form">
 
-            <h3 className="addPieza-title">Nueva Incidencia</h3>
+            <h3 className="addPieza-title addPieza-title--add">Nueva Incidencia</h3>
 
             <input
             name="titulo"
             placeholder="Título"
-            className="addPieza-textInput"
+            className="addPieza-textInput addPieza-textInput--add"
             />
 
             <textarea

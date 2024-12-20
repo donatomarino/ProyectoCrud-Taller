@@ -57,8 +57,14 @@ export default function Login() {
                     </label>
                 </div>
                 <input tag="button" type="submit" placeholder="Login" value='ENVIAR' className="login-submit"/>
+                {error && 
+                <div className='login-errorPosition'>
+                    <div className='login-errorContainer'>
+                    <p className="login-error">{error}</p>
+                    </div>
+                </div>}
             </form>
-            {error && <p style={{ color: "red" }}>{error}</p>}
+            
         </div>
     );
 }
